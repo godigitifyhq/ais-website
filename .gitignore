@@ -10,6 +10,12 @@
 !.yarn/releases
 !.yarn/versions
 
+# Ignore all markdown files
+*.md
+
+# Except these
+!README.md
+
 # testing
 /coverage
 

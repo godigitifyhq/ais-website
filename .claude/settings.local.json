@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed 's/declare const //')",
+      "Bash(grep -iE \"^\\(Star|Music|TrendingUp|Trophy|Zap|Smile|Target|Heart$|Lightbulb|Users$|Sparkles\\)\")",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

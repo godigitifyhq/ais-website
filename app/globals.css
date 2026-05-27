@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors */
+  --color-primary: #2859b8;
+  --color-primary-dark: #f59a01;
+  --color-primary-light: #ea946e;
+  --color-bg: #FAF8F5;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3EDE6;
+  --color-border: #E8DDD4;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6259;
+  --color-text-inverse: #FFFFFF;
+  --color-success: #2D7D46;
+
+  /* Fonts — variables injected by next/font */
+  --font-display: var(--font-playfair-display, serif);
+  --font-body: var(--font-dm-sans, sans-serif);
+  --font-accent: var(--font-cormorant, serif);
+
+  /* Breakpoints */
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary:        #2859b8;
+  --color-primary-dark:   #f59a01;
+  --color-primary-light:  #ea946e;
+  --color-bg:             #FAF8F5;
+  --color-surface:        #FFFFFF;
+  --color-surface-alt:    #F3EDE6;
+  --color-border:         #E8DDD4;
+  --color-text:           #1A1A1A;
+  --color-text-muted:     #6B6259;
+  --color-text-inverse:   #FFFFFF;
+  --color-success:        #2D7D46;
+  --color-error:          #C0272D;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Marquee animation — TrustStrip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Slower marquee — CBSEUpdatesStrip */
+.animate-marquee-slow {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-slow {
+    animation: none;
+  }
+}
+
+/* Hide scrollbar — FacilitiesSection mobile snap */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus ring accessible replacement */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
 }

@@ -80,7 +80,7 @@ export const aboutContent = {
   ],
   ctaLabel:    'Our Full Story',
   ctaHref:     '/about',
-  image:       '/images/home/about-students.jpg',
+  image:       '/images/home/collage1.png',
   imageAlt:    'AIS students studying together in class',
   stat1Value:  '500+',
   stat1Label:  'Students enrolled',
@@ -122,7 +122,7 @@ export const facilities: Facility[] = [
   { id: 'sports',    label: 'Sports',         image: '/images/home/facilities/sports.jpg',    imageAlt: 'AIS sports ground',            href: '/infrastructure#sports',    description: 'Basketball, volleyball, skating rink, and a full athletics track — sport for every child.' },
   { id: 'arts',      label: 'Arts & Culture', image: '/images/home/facilities/arts.jpg',      imageAlt: 'AIS arts programme',           href: '/life-at-alliance#arts',    description: 'A 500-seat auditorium for drama, dance, music, and annual cultural showcases.'            },
   { id: 'robotics',  label: 'Robotics Lab',   image: '/images/home/facilities/robotics.jpg',  imageAlt: 'Students in AIS Robotics Lab', href: '/initiatives',              description: 'Hands-on robotics builds and competitions — engineering skills from Class 3 onwards.'      },
-  { id: 'pool',      label: 'Swimming Pool',  image: '/images/home/facilities/pool.jpg',      imageAlt: 'AIS swimming pool',            href: '/infrastructure#sports',    description: 'A full-size pool with trained coaches — fostering champions at every level.'               },
+  { id: 'clubs',      label: 'Club Activities',  image: '/images/home/clubs.png',      imageAlt: 'AIS Clubs',            href: '/infrastructure#sports',    description: 'Different club activities to inculcate creativity, confidence and aptitude od students.'               },
   { id: 'hostel',    label: 'Hostel',         image: '/images/home/facilities/hostel.jpg',    imageAlt: 'AIS hostel facility',          href: '/infrastructure#hostel',    description: 'Safe, supervised residential facilities for students from across Punjab and beyond.'       },
 ]
 
@@ -179,6 +179,186 @@ export const affiliations: Affiliation[] = [
   { id: 'british', name: 'British Council International Award', logo: '/images/home/affiliations/british-council.png', width: 120, height: 60 },
   { id: 'ncert',   name: 'NCERT',                              logo: '/images/home/affiliations/ncert.png',           width: 80,  height: 80 },
   { id: 'khel',    name: 'Khelo India',                        logo: '/images/home/affiliations/khelo-india.png',     width: 100, height: 60 },
+]
+
+// ─── ACHIEVER PORTRAITS (AchievementsStrip) ───────────────────────────────────
+
+export interface AchieverPortrait {
+  id:          string
+  image:       string
+  name:        string
+  achievement: string
+  category:    'academics' | 'sports' | 'arts' | 'olympiad'
+}
+
+export const achieverPortraits: AchieverPortrait[] = [
+  {
+    id:          'ap-1',
+    image:       '/images/educators/team/principal.jpg',
+    name:        'Harman Singh',
+    achievement: 'Taekwondo Bronze — International Championship',
+    category:    'sports',
+  },
+  {
+    id:          'ap-2',
+    image:       '/images/educators/team/anil-verma.jpg',
+    name:        'Aditya Sharma',
+    achievement: 'National Chess Olympiad Qualifier',
+    category:    'olympiad',
+  },
+  {
+    id:          'ap-3',
+    image:       '/images/educators/team/sunita-mehta.jpg',
+    name:        'Priya Nanda',
+    achievement: 'State Swimming Champion',
+    category:    'sports',
+  },
+  {
+    id:          'ap-4',
+    image:       '/images/educators/team/deepak-singh.jpg',
+    name:        'Rohan Garg',
+    achievement: 'CBSE Science Exhibition — Regional Winner',
+    category:    'academics',
+  },
+  {
+    id:          'ap-5',
+    image:       '/images/educators/team/principal.jpg',
+    name:        'Simran Kaur',
+    achievement: 'National Classical Dance — Gold Medal',
+    category:    'arts',
+  },
+  {
+    id:          'ap-6',
+    image:       '/images/educators/team/anil-verma.jpg',
+    name:        'Arjun Mehta',
+    achievement: 'District Robotics Challenge — 1st Place',
+    category:    'olympiad',
+  },
+  {
+    id:          'ap-7',
+    image:       '/images/educators/team/sunita-mehta.jpg',
+    name:        'Kavya Singh',
+    achievement: 'National Astronomy Olympiad Qualifier',
+    category:    'olympiad',
+  },
+  {
+    id:          'ap-8',
+    image:       '/images/educators/team/deepak-singh.jpg',
+    name:        'Rahul Verma',
+    achievement: 'State Football Championship MVP',
+    category:    'sports',
+  },
+]
+
+// ─── ATMOSPHERE IMAGES (AtmosphereReel bento grid) ────────────────────────────
+
+export interface AtmosphereImage {
+  src:     string
+  alt:     string
+  colSpan?: number
+  rowSpan?: number
+}
+
+export const atmosphereImages: AtmosphereImage[] = [
+  {
+    src:     '/images/home/nasa.png',
+    alt:     'AIS students laughing and enjoying campus life together',
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    src:     '/images/home/candid-1.png',
+    alt:     'AIS teacher engaged with students in classroom discussion',
+  },
+  {
+    src:     '/images/home/candid-2.png',
+    alt:     'AIS students in action at sports event',
+  },
+  {
+    src:     '/images/home/candid-3.png',
+    alt:     'AIS morning assembly — students gathered on grounds',
+    colSpan: 2,
+  },
+]
+
+// ─── TESTIMONIALS (TestimonialsSection) ───────────────────────────────────────
+
+export interface Testimonial {
+  id:         string
+  avatar:     string
+  parentName: string
+  childClass: string
+  quote:      string
+  rating:     number
+}
+
+export const testimonials: Testimonial[] = [
+  {
+    id:         't-1',
+    avatar:     '/images/about/campus-students.jpg',
+    parentName: 'Rajesh Kumar',
+    childClass: 'Parent of Class 8 student',
+    quote:      'AIS has transformed our daughter. She is more confident, more curious, and genuinely loves going to school every morning.',
+    rating:     5,
+  },
+  {
+    id:         't-2',
+    avatar:     '/images/home/about-students.jpg',
+    parentName: 'Sunita Sharma',
+    childClass: 'Parent of Class 5 student',
+    quote:      'The hostel care is exceptional. Teachers treat every child like their own. We never worry about our son.',
+    rating:     5,
+  },
+  {
+    id:         't-3',
+    avatar:     '/images/about/campus-2.jpg',
+    parentName: 'Gurpreet Singh',
+    childClass: 'Parent of Class 10 student',
+    quote:      'Best decision we ever made. The robotics programme and sports facilities are world-class. Our son is thriving.',
+    rating:     5,
+  },
+  {
+    id:         't-4',
+    avatar:     '/images/life_at_alliance/breather-campus-life.png',
+    parentName: 'Meena Patel',
+    childClass: 'Parent of Class 3 student',
+    quote:      'The activity-based learning approach is remarkable. My child understands concepts through experience, not just memorisation.',
+    rating:     5,
+  },
+]
+
+// ─── LATEST POSTS (Navbar mega-menu "Latest from AIS") ────────────────────────
+
+export interface LatestPost {
+  image:    string
+  category: string
+  title:    string
+  date:     string
+  href:     string
+}
+
+export const latestPosts: LatestPost[] = [
+  {
+    image:    '/images/home/events/flag-day.jpg',
+    category: 'Community',
+    title:    'National Flag Day Celebration at AIS',
+    date:     '22 July 2025',
+    href:     '/blogs/national-flag-day-2025',
+  },
+  {
+    image:    '/images/home/sport.png',
+    category: 'Sports',
+    title:    'Annual Sports Day 2025 Highlights',
+    date:     '10 July 2025',
+    href:     '/blogs/sports-day-2025',
+  },
+  {
+    image:    '/images/home/Robolab1.png',
+    category: 'Academics',
+    title:    'Robotics Innovation Showcase 2025',
+    date:     '2 June 2025',
+    href:     '/blogs/robotics-showcase-2025',
+  },
 ]
 
 // ─── HOME PAGE V2 ADDITIONS ───────────────────────────────────────────────────

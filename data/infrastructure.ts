@@ -1,3 +1,8 @@
+export interface StudentQuote {
+  text: string
+  name: string
+}
+
 export interface CampusBlock {
   id: string
   anchorId: string
@@ -10,6 +15,13 @@ export interface CampusBlock {
   imageAlt: string
   imagePosition: 'left' | 'right'
   features?: BlockFeature[]
+  studentQuote?: StudentQuote
+}
+
+export interface FacilityInUseItem {
+  src:   string
+  alt:   string
+  label: string
 }
 
 export interface BlockFeature {
@@ -129,6 +141,10 @@ export const campusBlocks: CampusBlock[] = [
       { id: 'skills',    icon: 'Brain',   label: 'Instils Confidence & Problem-Solving Skills'   },
       { id: 'transport', icon: 'Bus',     label: 'Well Connected with World-class Transport'     },
     ],
+    studentQuote: {
+      text: 'My favourite place in school!',
+      name: 'Riya, KG B',
+    },
   },
   {
     id: 'academic',
@@ -144,21 +160,29 @@ export const campusBlocks: CampusBlock[] = [
     imageSrc: '/images/infrastructure/academic-block.png',
     imageAlt: 'AIS Academic Block — equipped classrooms with modern teaching aids',
     imagePosition: 'right',
+    studentQuote: {
+      text: 'I actually look forward to class every day.',
+      name: 'Aryan, Class 8',
+    },
   },
   {
-    id: 'staff-residence',
-    anchorId: 'staff-residence',
-    eyebrow: 'Staff Living',
-    headingPlain: 'Staff',
-    headingAccent: 'Residence',
-    ghostLabel: 'HOME',
+    id: 'infirmary',
+    anchorId: 'infirmary',
+    eyebrow: 'Medical Care',
+    headingPlain: 'Infirmary &',
+    headingAccent: 'Medical Facilities',
+    ghostLabel: 'CARE',
     body: [
-      'The selected fraternity resides at furnished staff quarters provided for teachers. Separate accommodation is provided for housekeeping staff and other service and support personnel.',
-      'Having residential staff on campus means students always have access to a trusted adult, improving safety, continuity, and the overall sense of community.',
+      'A dedicated on-campus infirmary provides immediate attention for minor injuries and illnesses, staffed by a full-time nurse and supported by visiting physicians.',
+      'The facility is equipped with a dispensary, isolation room for contagious cases, and established emergency response protocols to ensure student safety and continuity of care.',
     ],
-    imageSrc: '/images/infrastructure/staff-residence.jpg',
-    imageAlt: 'AIS Staff Residence — comfortable and well-maintained quarters',
+    imageSrc: '/images/infrastructure/medical.png',
+    imageAlt: 'AIS Infirmary and Medical Facilities — on-campus nurse and dispensary',
     imagePosition: 'left',
+    studentQuote: {
+      text: 'The infirmary staff looked after me when I was unwell.',
+      name: 'Simran, Class 6',
+    },
   },
   {
     id: 'admin',
@@ -174,7 +198,18 @@ export const campusBlocks: CampusBlock[] = [
     imageSrc: '/images/infrastructure/hero-campus.png',
     imageAlt: 'AIS Administrative Block — the operational heart of the campus',
     imagePosition: 'right',
+    studentQuote: {
+      text: 'Everything runs smoothly here.',
+      name: 'Rohan, Class 10',
+    },
   },
+]
+
+export const facilityInUseItems: FacilityInUseItem[] = [
+  { src: '/images/infrastructure/science.jpg',      alt: 'Students conducting science experiments in AIS lab',  label: 'LABS'  },
+  { src: '/images/infrastructure/sports-grounds.png', alt: 'AIS students playing sports on the school field',   label: 'FIELD' },
+  { src: '/images/infrastructure/medical.png',         alt: 'AIS Medical facilities',                  label: 'INFIRMARY'  },
+  { src: '/images/infrastructure/arts-studio.png',   alt: 'AIS students performing on the arts studio stage',   label: 'STAGE' },
 ]
 
 export const sportsData = {
@@ -279,7 +314,7 @@ export const transportData = {
 export const galleryPhotos: GalleryPhoto[] = [
   { id: 'g1', src: '/images/infrastructure/main.jpg', alt: 'AIS main building facade',       caption: 'Main Building'  },
   { id: 'g2', src: '/images/infrastructure/indoor.jpg', alt: 'AIS indoor corridor',             caption: 'Indoor Spaces'  },
-  { id: 'g3', src: '/images/infrastructure/gallery-3.jpg', alt: 'AIS outdoor sports ground',       caption: 'Sports Grounds' },
+  { id: 'g3', src: '/images/infrastructure/sports-ground.png', alt: 'AIS outdoor sports ground',       caption: 'Sports Grounds' },
   { id: 'g4', src: '/images/infrastructure/kindergarten.jpg', alt: 'AIS kindergarten play area',      caption: 'KG Play Area'   },
   { id: 'g5', src: '/images/infrastructure/science.jpg', alt: 'AIS science laboratory',          caption: 'Science Lab'    },
   { id: 'g6', src: '/images/infrastructure/art.jpg', alt: 'AIS arts and craft studio',       caption: 'Arts Studio'    },

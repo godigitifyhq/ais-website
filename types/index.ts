@@ -19,6 +19,7 @@ export interface SkewedSection {
   headingPlain:  string
   headingAccent: string
   body:          string[]
+  bullets?:      string[]
   ctaLabel?:     string
   ctaHref?:      string
   imageSrc:      string

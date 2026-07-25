@@ -29,7 +29,7 @@ export function BreatherImage({ src, alt, height = 'min(55vh, 480px)' }: Breathe
           src={src}
           alt={alt}
           fill
-          className="object-cover object-center"
+          className="object-cover object-top"
           sizes="100vw"
         />
       </motion.div>

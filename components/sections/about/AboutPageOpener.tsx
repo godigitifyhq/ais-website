@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { aboutOpener } from '@/data/about'
+import { SplitHeading }    from '@/components/ui/SplitHeading'
+import { LoopingKeyword } from '@/components/ui/LoopingKeyword'
 
 const ease = [0.33, 1, 0.68, 1] as const
 
@@ -34,17 +36,33 @@ export function AboutPageOpener() {
             {aboutOpener.eyebrow}
           </motion.p>
 
-          {/* Main statement — text-text (charcoal) for gravitas, NOT primary */}
-          <motion.h1
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text leading-[1.06] mb-6"
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease, delay: 0.12 }}
-          >
-            {aboutOpener.statement.split('\n').map((line, i) => (
-              <span key={i} className="block">{line}</span>
-            ))}
-          </motion.h1>
+          {/* Heading — static lines + looping keyword */}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text leading-[1.06] mb-6">
+            <SplitHeading
+              text="We evaluate intelligence"
+              tag="span"
+              delay={0.1}
+              stagger={0.055}
+              duration={0.55}
+              className="block"
+            />
+            <span className="block">
+              <SplitHeading
+                text="beyond just"
+                tag="span"
+                delay={0.38}
+                stagger={0.06}
+                duration={0.55}
+                className="inline"
+              />
+              {' '}
+              <LoopingKeyword
+                words={['grades.', 'tests.', 'numbers.', 'scores.']}
+                className="text-primary"
+                interval={2800}
+              />
+            </span>
+          </h1>
 
           {/* Sub-text */}
           <motion.p

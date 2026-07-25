@@ -5,12 +5,14 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, X, Menu } from 'lucide-react'
+import { latestPosts } from '@/data/home'
 
 const navLinks = [
   { label: 'Home',             href: '/' },
   { label: 'About Us',         href: '/about' },
   { label: 'Life at Alliance', href: '/life-at-alliance' },
   { label: 'Admission',        href: '/admission' },
+  { label: 'Resources',        href: '/resources' },
   { label: 'Contact',          href: '/contact' },
 ]
 
@@ -22,7 +24,8 @@ const megaMenuSections = {
     { label: 'Infrastructure',         href: '/infrastructure' },
   ],
   'ACADEMICS': [
-    { label: 'CBSE Corner',        href: '/cbse-corner' },
+    { label: 'CBSE Corner',         href: '/cbse-corner' },
+    { label: 'CBSE Resources',         href: '/resources' },
     { label: 'Robotics & Initiatives', href: '/initiatives' },
     { label: 'School App (myAIS)',      href: 'https://edusecure.org/aisbanur/login/login.aspx' },
   ],
@@ -206,15 +209,57 @@ export function Navbar() {
                 ))}
               </div>
 
+              {/* ── Latest from AIS strip ── */}
+              <motion.div
+                className="mt-12"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.32, duration: 0.4 }}
+              >
+                <div className="h-px bg-border mb-8" />
+                <p className="font-body text-[10px] font-bold tracking-[0.18em] uppercase text-text-muted mb-6">
+                  LATEST FROM AIS
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {latestPosts.map(post => (
+                    <Link
+                      key={post.href}
+                      href={post.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="group flex gap-3 items-start"
+                    >
+                      <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                          sizes="64px"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-body text-[10px] font-bold tracking-wider uppercase text-primary-light">
+                          {post.category}
+                        </span>
+                        <p className="font-body text-sm font-medium text-text group-hover:text-primary transition-colors leading-snug line-clamp-2 mt-0.5">
+                          {post.title}
+                        </p>
+                        <span className="font-body text-xs text-text-muted">{post.date}</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+
               {/* Left side large nav labels (SFHS style) */}
               <motion.div
-                className="mt-16 hidden lg:flex flex-col gap-2"
+                className="mt-10 hidden lg:flex flex-col gap-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.35 }}
+                transition={{ delay: 0.42 }}
               >
                 <div className="h-px bg-border mb-6" />
-                <div className="flex gap-10 flex-wrap">
+                <div className="flex gap-8 flex-wrap">
                   {navLinks.map(({ label, href }) => (
                     <Link
                       key={href}

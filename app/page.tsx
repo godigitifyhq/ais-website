@@ -2,15 +2,15 @@ import { buildMetadata }            from '@/lib/seo'
 import { PageTransition }           from '@/components/ui/PageTransition'
 import { HeroSection }              from '@/components/sections/home/HeroSection'
 import { TrustStrip }               from '@/components/sections/home/TrustStrip'
+import { AchievementsStrip }        from '@/components/sections/home/AchievementsStrip'
+import { AtmosphereReel }           from '@/components/sections/home/AtmosphereReel'
 import { AboutSection }             from '@/components/sections/home/AboutSection'
-import { PhilosophyBreak }          from '@/components/sections/home/PhilosophyBreak'
 import { WhyAISSection }            from '@/components/sections/home/WhyAISSection'
-import { FacilitiesSection }        from '@/components/sections/home/FacilitiesSection'
-import { CampusBreather }           from '@/components/sections/home/CampusBreather'
-import { HolisticJourneySection }   from '@/components/sections/home/HolisticJourneySection'
 import { LifeAtAllianceSection }    from '@/components/sections/home/LifeAtAllianceSection'
 import { EventsSection }            from '@/components/sections/home/EventsSection'
-import { AchievementsSection }      from '@/components/sections/home/AchievementsSection'
+import { FacilitiesSection }        from '@/components/sections/home/FacilitiesSection'
+import { TestimonialsSection }      from '@/components/sections/home/TestimonialsSection'
+import { CBSECornerHook }           from '@/components/sections/home/CBSECornerHook'
 import { AdmissionCTASection }      from '@/components/sections/home/AdmissionCTASection'
 import { AffiliationsSection }      from '@/components/sections/home/AffiliationsSection'
 
@@ -26,15 +26,15 @@ export default function HomePage() {
     <PageTransition>
       <HeroSection />
       <TrustStrip />
+      <AchievementsStrip />
+      <AtmosphereReel />
       <AboutSection />
-      <PhilosophyBreak />
       <WhyAISSection />
-      <FacilitiesSection />
-      <CampusBreather />
-      <HolisticJourneySection />
       <LifeAtAllianceSection />
       <EventsSection />
-      <AchievementsSection />
+      <FacilitiesSection />
+      <TestimonialsSection />
+      <CBSECornerHook />
       <AdmissionCTASection />
       <AffiliationsSection />
     </PageTransition>

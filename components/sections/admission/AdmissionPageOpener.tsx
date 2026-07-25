@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { admissionOpener } from '@/data/admission'
 import { AdmissionEnquiryForm } from './AdmissionEnquiryForm'
+import { SplitHeading }    from '@/components/ui/SplitHeading'
+import { LoopingKeyword } from '@/components/ui/LoopingKeyword'
 
 const ease = [0.33, 1, 0.68, 1] as const
 
@@ -35,16 +37,19 @@ export function AdmissionPageOpener() {
             {admissionOpener.eyebrow}
           </motion.p>
 
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1, ease }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text
-              leading-[1.06] mb-5 whitespace-pre-line max-w-lg"
-          >
-            {admissionOpener.headline}
-          </motion.h1>
+          {/* Headline — static + looping keyword */}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text leading-[1.06] mb-5 max-w-lg">
+            <span className="block">
+              <SplitHeading text="A better" tag="span" delay={0.1} stagger={0.07} duration={0.55} className="inline" />
+              {' '}
+              <LoopingKeyword
+                words={['future.', 'beginning.', 'tomorrow.', 'journey.']}
+                className="text-primary"
+                interval={2700}
+              />
+            </span>
+            <SplitHeading text="begins with one step." tag="span" delay={0.35} stagger={0.055} duration={0.52} className="block" />
+          </h1>
 
           {/* Sub-text */}
           <motion.p

@@ -1,9 +1,10 @@
-import { BookOpen } from 'lucide-react'
+import Link from 'next/link'
+import { BookOpen, GraduationCap } from 'lucide-react'
 
 export function BookListCTA() {
   return (
     <section style={{ background: 'var(--color-bg)', padding: '0 0 4rem' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4">
         <div
           style={{
             width: '100%',
@@ -50,12 +51,32 @@ export function BookListCTA() {
               transition: 'background 200ms ease, color 200ms ease',
             }}
             className="hover:bg-primary hover:text-white"
-            aria-label="Download Book List 2025–26 PDF"
+            aria-label="Download Book List 2025-26 PDF"
           >
             <BookOpen size={16} />
             View Book List
           </a>
         </div>
+
+        {/* Cross-link to study resources page */}
+        <p
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontSize: '0.8125rem',
+            color: 'var(--color-text-muted)',
+            textAlign: 'center',
+          }}
+        >
+          Need NCERT solutions, sample papers, or syllabus PDFs?{' '}
+          <Link
+            href="/resources"
+            className="font-semibold hover:underline"
+            style={{ color: 'var(--color-primary)' }}
+          >
+            <GraduationCap size={13} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '3px' }} />
+            Browse Academic Resources →
+          </Link>
+        </p>
       </div>
     </section>
   )

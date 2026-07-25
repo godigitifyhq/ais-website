@@ -4,11 +4,12 @@ import { PageHero }                                    from '@/components/life/P
 import { PhilosophyIntro }                             from '@/components/life/PhilosophyIntro'
 import { PillarsOfLifeGrid }                           from '@/components/life/PillarsOfLifeGrid'
 import { BreatherImage }                               from '@/components/life/BreatherImage'
-import { ActivityListAndGrid }                         from '@/components/life/ActivityListAndGrid'
+import { ActivityShowcaseGrid }                        from '@/components/life/ActivityShowcaseGrid'
 import { SkewedContentCard }                           from '@/components/sections/educators/SkewedContentCard'
 import { ActivityBasedLearning }                       from '@/components/life/ActivityBasedLearning'
+import { DayAtAISTimeline }                            from '@/components/life/DayAtAISTimeline'
 import { StudentCouncil }                              from '@/components/life/StudentCouncil'
-import { LifeGalleryCTA }                              from '@/components/life/LifeGalleryCTA'
+import { ExcellenceMarquee }                           from '@/components/life/ExcellenceMarquee'
 import { lifeSections, breatherImages }                from '@/data/lifeAtAlliance'
 
 export const metadata = buildMetadata({
@@ -25,20 +26,20 @@ export default function LifeAtAlliancePage() {
       {/* 01. Hero */}
       <PageHero />
 
-      {/* 02. Philosophy intro — "Going Beyond" */}
+      {/* 02. Philosophy intro */}
       <PhilosophyIntro />
 
-      {/* 03. Five Pillars dark grid */}
+      {/* 03. Five Pillars — image-led cards */}
       <PillarsOfLifeGrid />
 
-      {/* 04. Breather image #1 */}
+      {/* 04. Breather image */}
       <BreatherImage
         src={breatherImages.first.src}
         alt={breatherImages.first.alt}
       />
 
-      {/* 05. Activity list + photo-card grid */}
-      <ActivityListAndGrid />
+      {/* 05. Activity Showcase Grid (replaces ActivityListAndGrid) */}
+      <ActivityShowcaseGrid />
 
       {/* 06. Hostel Life */}
       <section id="hostel-life" style={{ background: 'var(--color-bg)' }}>
@@ -60,20 +61,23 @@ export default function LifeAtAlliancePage() {
         <SkewedContentCard section={lifeSections[3]} />
       </section>
 
-      {/* 10. Breather image #2 */}
+      {/* 10. Activity-Based Learning — image grid */}
+      <ActivityBasedLearning />
+
+      {/* 11. A Day at AIS Timeline */}
+      {/* <DayAtAISTimeline /> */}
+
+      {/* 12. Breather image */}
       <BreatherImage
         src={breatherImages.second.src}
         alt={breatherImages.second.alt}
       />
 
-      {/* 11. Activity-Based Learning editorial */}
-      <ActivityBasedLearning />
-
-      {/* 12. Student Council */}
+      {/* 13. Student Council */}
       <StudentCouncil />
 
-      {/* 13. Gallery mosaic + CTA band */}
-      <LifeGalleryCTA />
+      {/* 14. Excellence Marquee — auto-scrolling achievement strip */}
+      <ExcellenceMarquee />
 
     </PageTransition>
   )

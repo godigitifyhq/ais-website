@@ -38,6 +38,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="We'd love to hear from you. Reach out to learn about admissions, campus visits, or any other enquiries."
         breadcrumbs={[{ label: 'Contact Us' }]}
+        backgroundImage='/images/contact-hero.png'
       />
 
       <section className="py-20">
@@ -106,7 +107,7 @@ export default function ContactPage() {
       <section className="pb-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl overflow-hidden h-[400px] shadow-md">
-            <iframe
+            {/* <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3436.9!2d76.7!3d30.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAlliance+International+School+Banur!5e0!3m2!1sen!2sin!4v1"
               width="100%"
               height="100%"
@@ -115,7 +116,10 @@ export default function ContactPage() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Alliance International School location map"
-            />
+            /> */}
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13746.621756149345!2d76.65681481361392!3d30.5307807696342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fc2e2e7fc66d3%3A0xbac5d9842c889980!2sAlliance%20International%20School!5e0!3m2!1sen!2sin!4v1780645720122!5m2!1sen!2sin" width="100%"
+              height="100%"
+              style={{ border: 0 }}  allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>

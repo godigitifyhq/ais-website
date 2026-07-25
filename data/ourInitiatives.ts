@@ -12,6 +12,7 @@ export interface EquipmentTile {
   heading:  string
   body:     string
   category: 'robotics' | 'sports' | 'boarding'
+  imageSrc?: string
 }
 
 export interface ProcessStep {
@@ -115,18 +116,18 @@ export const initiativeSections: InitiativeSection[] = [
 // ─── EQUIPMENT & TOOLS GRID ───────────────────────────────────────────────────
 
 export const equipmentTiles: EquipmentTile[] = [
-  { id: 'kits',       icon: 'Bot',          heading: 'Robotics Kits',                   body: 'Industry-grade LEGO Mindstorms and VEX robotics kits for every level.',          category: 'robotics' },
-  { id: 'computers',  icon: 'Monitor',      heading: 'Computers & Programming Tools',   body: 'Dedicated programming stations with Python, Scratch, and Arduino IDEs.',          category: 'robotics' },
-  { id: 'micro',      icon: 'Cpu',          heading: 'Microcontrollers & Electronics',  body: 'Arduino, Raspberry Pi, and ESP32 boards with full component libraries.',          category: 'robotics' },
-  { id: 'sensors',    icon: 'Radio',        heading: 'Sensors & Actuators',             body: 'Ultrasonic, infrared, temperature, and motion sensors for real-world projects.',  category: 'robotics' },
-  { id: 'mechanical', icon: 'Settings',     heading: 'Mechanical Components',           body: 'Gears, motors, axles, and structural parts for physical prototyping.',            category: 'robotics' },
-  { id: 'printing',   icon: 'Printer',      heading: '3D Printers & Prototyping Tools', body: 'FDM printers and CAD software to take designs from screen to physical form.',     category: 'robotics' },
-  { id: 'materials',  icon: 'BookOpen',     heading: 'Instructional Materials',         body: 'Structured curriculum-aligned project booklets for Grades 3–12.',                category: 'robotics' },
-  { id: 'teacher',    icon: 'GraduationCap',heading: 'Teacher Support',                 body: 'Certified instructors with STEM pedagogy training on-site at all times.',        category: 'robotics' },
-  { id: 'storage',    icon: 'Archive',      heading: 'Project Storage & Display',       body: 'Dedicated shelving for in-progress and completed student projects.',              category: 'robotics' },
-  { id: 'collab',     icon: 'Users',        heading: 'Collaboration Spaces',            body: 'Open-plan tables designed for team-based problem-solving sessions.',              category: 'robotics' },
-  { id: 'curriculum', icon: 'BookMarked',   heading: 'Integration with Curriculum',     body: 'Lab activities mapped directly to CBSE science, maths, and computer science.',   category: 'robotics' },
-  { id: 'sports-eq',  icon: 'Trophy',       heading: 'Sports Academy Equipment',        body: 'Professional-grade gear across cricket, football, basketball, and tennis.',      category: 'sports'   },
+  { id: 'kits',       icon: 'Bot',          heading: 'LEGO & VEX Robotics Kits',        body: 'Industry-grade LEGO Mindstorms and VEX robotics kits for every level.',          category: 'robotics', imageSrc: '/images/home/Robolab1.png'             },
+  { id: 'computers',  icon: 'Monitor',      heading: 'Programming Lab Stations',        body: 'Dedicated programming stations with Python, Scratch, and Arduino IDEs.',          category: 'robotics', imageSrc: '/images/infrastructure/academic-block.png' },
+  { id: 'micro',      icon: 'Cpu',          heading: 'Arduino & Raspberry Pi Boards',   body: 'Arduino, Raspberry Pi, and ESP32 boards with full component libraries.',          category: 'robotics', imageSrc: '/images/home/Robolab1.png'             },
+  { id: 'sensors',    icon: 'Radio',        heading: 'Smart Sensors & Actuators',       body: 'Ultrasonic, infrared, temperature, and motion sensors for real-world projects.',  category: 'robotics', imageSrc: '/images/initiatives/robotics-lab.jpg'  },
+  { id: 'mechanical', icon: 'Settings',     heading: 'Mechanical Prototyping Parts',    body: 'Gears, motors, axles, and structural parts for physical prototyping.',            category: 'robotics', imageSrc: '/images/home/Robolab1.png'             },
+  { id: 'printing',   icon: 'Printer',      heading: '3D Printers & CAD Tools',         body: 'FDM printers and CAD software to take designs from screen to physical form.',     category: 'robotics', imageSrc: '/images/infrastructure/robotics.jpg'   },
+  { id: 'materials',  icon: 'BookOpen',     heading: 'CBSE-Aligned Project Booklets',   body: 'Structured curriculum-aligned project booklets for Grades 3–12.',                category: 'robotics', imageSrc: '/images/infrastructure/library.jpg'    },
+  { id: 'teacher',    icon: 'GraduationCap',heading: 'Certified STEM Instructors',      body: 'Certified instructors with STEM pedagogy training on-site at all times.',        category: 'robotics', imageSrc: '/images/educators/teachers-as-learners.jpg' },
+  { id: 'storage',    icon: 'Archive',      heading: 'Student Project Display Wall',    body: 'Dedicated shelving for in-progress and completed student projects.',              category: 'robotics', imageSrc: '/images/home/Robolab1.png'             },
+  { id: 'collab',     icon: 'Users',        heading: 'Team Collaboration Stations',     body: 'Open-plan tables designed for team-based problem-solving sessions.',              category: 'robotics', imageSrc: '/images/educators/teachers-support-system.jpg' },
+  { id: 'curriculum', icon: 'BookMarked',   heading: 'CBSE Curriculum Integration',     body: 'Lab activities mapped directly to CBSE science, maths, and computer science.',   category: 'robotics', imageSrc: '/images/infrastructure/academic-block.png' },
+  { id: 'sports-eq',  icon: 'Trophy',       heading: 'Professional Sports Equipment',   body: 'Professional-grade gear across cricket, football, basketball, and tennis.',      category: 'sports',  imageSrc: '/images/home/sport.png'                },
 ]
 
 // ─── HOW TO JOIN PROCESS STEPS ────────────────────────────────────────────────

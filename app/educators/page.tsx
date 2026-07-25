@@ -1,13 +1,14 @@
-import { buildMetadata }         from '@/lib/seo'
-import { PageTransition }        from '@/components/ui/PageTransition'
-import { EducatorsPageHero }     from '@/components/sections/educators/PageHero'
-import { IntroStatement }        from '@/components/sections/educators/IntroStatement'
-import { SkewedContentCard }     from '@/components/sections/educators/SkewedContentCard'
-import { StatsStrip }            from '@/components/sections/educators/StatsStrip'
-import { TeacherQuoteSection }   from '@/components/sections/educators/TeacherQuoteSection'
-import { ManagementCarousel }    from '@/components/sections/educators/ManagementCarousel'
-import { JoinTeamCTA }           from '@/components/sections/educators/JoinTeamCTA'
-import { educatorSections }      from '@/data/educators'
+import { buildMetadata }           from '@/lib/seo'
+import { PageTransition }          from '@/components/ui/PageTransition'
+import { EducatorsPageHero }       from '@/components/sections/educators/PageHero'
+import { IntroStatement }          from '@/components/sections/educators/IntroStatement'
+import { SkewedContentCard }       from '@/components/sections/educators/SkewedContentCard'
+import { TeachingInActionGrid }    from '@/components/educators/TeachingInActionGrid'
+import { StatsStrip }              from '@/components/sections/educators/StatsStrip'
+import { TeacherQuoteSection }     from '@/components/sections/educators/TeacherQuoteSection'
+import { ManagementCarousel }      from '@/components/sections/educators/ManagementCarousel'
+import { JoinTeamCTA }             from '@/components/sections/educators/JoinTeamCTA'
+import { educatorSections }        from '@/data/educators'
 
 export const metadata = buildMetadata({
   title:       'Our Educators',
@@ -25,6 +26,7 @@ export default function EducatorsPage() {
       {educatorSections.map((section) => (
         <SkewedContentCard key={section.id} section={section} />
       ))}
+      <TeachingInActionGrid />
       <StatsStrip />
       <TeacherQuoteSection />
       <ManagementCarousel />

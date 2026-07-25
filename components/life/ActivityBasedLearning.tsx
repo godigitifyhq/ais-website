@@ -1,7 +1,8 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useReveal } from '@/hooks/useReveal'
-import { activityBasedLearning } from '@/data/lifeAtAlliance'
+import { activityBasedLearning, activityBasedImages } from '@/data/lifeAtAlliance'
 
 const ease = [0.33, 1, 0.68, 1] as const
 
@@ -9,115 +10,68 @@ export function ActivityBasedLearning() {
   const { ref, inView } = useReveal(0.1)
 
   return (
-    <section
-      className="relative overflow-hidden py-24 lg:py-32"
-      style={{ background: 'var(--color-bg)' }}
-    >
-      {/* Ghost label */}
-      <span
-        aria-hidden="true"
-        className="absolute top-0 left-0 font-accent italic font-black uppercase whitespace-nowrap leading-none select-none pointer-events-none text-text/4"
-        style={{ fontSize: 'clamp(4rem, 14vw, 11rem)' }}
-      >
-        {activityBasedLearning.ghostLabel}
-      </span>
+    <section className="bg-bg py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Heading block — centered */}
-        <div ref={ref} className="text-center mb-10">
+        {/* Heading */}
+        <div ref={ref} className="mb-10">
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, ease }}
-            className="font-body font-bold uppercase mb-4"
-            style={{
-              fontSize:      '0.7rem',
-              letterSpacing: '0.12em',
-              color:         'var(--color-primary)',
-            }}
+            className="font-body text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-3"
           >
             {activityBasedLearning.eyebrow}
           </motion.p>
-
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1, ease }}
-            className="font-display font-bold leading-tight"
-            style={{ fontSize: 'clamp(2.25rem, 4vw, 3rem)', color: 'var(--color-text)' }}
+            transition={{ duration: 0.5, delay: 0.08, ease }}
+            className="font-display text-2xl md:text-4xl font-bold text-text leading-tight"
           >
             {activityBasedLearning.headingPlain}{' '}
-            <span
-              className="font-accent italic block sm:inline"
-              style={{ color: 'var(--color-primary)' }}
-            >
+            <span className="font-accent italic text-primary">
               {activityBasedLearning.headingAccent}
             </span>
           </motion.h2>
-
-          {/* Rule — scaleX from 0→1 to avoid animating width directly */}
-          <div className="flex justify-center mt-8">
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={inView ? { scaleX: 1 } : {}}
-              transition={{ duration: 0.4, delay: 0.3, ease: 'easeOut' }}
-              style={{
-                width:           '48px',
-                height:          '3px',
-                background:      'var(--color-primary-dark)',
-                transformOrigin: 'left center',
-              }}
-            />
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.15, ease }}
+            className="font-accent italic text-base text-text-muted mt-2"
+          >
+            Real experiences over textbook memorisation.
+          </motion.p>
         </div>
 
-        {/* Two-column body */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.55, delay: 0.45, ease }}
-          className="grid grid-cols-1 lg:grid-cols-2"
-          style={{ gap: '3rem' }}
-        >
-          {/* Left column */}
-          <div className="space-y-5">
-            {activityBasedLearning.leftBody.map((para, i) => (
-              <p
-                key={i}
-                className="font-body"
-                style={{
-                  fontSize:   '0.9375rem',
-                  lineHeight: 1.8,
-                  color:      'var(--color-text-muted)',
-                }}
-              >
-                {para}
+        {/* Image grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {activityBasedImages.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.07, ease }}
+              className="group"
+            >
+              {/* Image */}
+              <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-2">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover transition-transform duration-400 group-hover:scale-[1.04]"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                />
+              </div>
+              {/* Label */}
+              <p className="font-body text-sm font-semibold text-text group-hover:text-primary transition-colors duration-200">
+                {img.activityLabel}
               </p>
-            ))}
-          </div>
-
-          {/* Right column */}
-          <div
-            className="space-y-5 lg:border-l lg:pl-12"
-            style={{ borderColor: 'var(--color-border)' }}
-          >
-            {activityBasedLearning.rightBody.map((para, i) => (
-              <p
-                key={i}
-                className="font-body"
-                style={{
-                  fontSize:   '0.9375rem',
-                  lineHeight: 1.8,
-                  color:      'var(--color-text-muted)',
-                }}
-              >
-                {para}
-              </p>
-            ))}
-          </div>
-        </motion.div>
-
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )

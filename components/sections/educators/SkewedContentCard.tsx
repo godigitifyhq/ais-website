@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Dot } from 'lucide-react'
 import type { SkewedSection } from '@/data/educators'
 import { useReveal } from '@/hooks/useReveal'
 
@@ -128,13 +128,24 @@ export function SkewedContentCard({ section, animationDelay = 0 }: Props) {
             </span>
           </h2>
 
-          <div className="space-y-4 mb-8">
+          <div className="space-y-3 mb-6">
             {section.body.map((para, i) => (
               <p key={i} className="font-body text-sm lg:text-base leading-relaxed text-white/85">
                 {para}
               </p>
             ))}
           </div>
+
+          {section.bullets && section.bullets.length > 0 && (
+            <ul className="space-y-2 mb-8">
+              {section.bullets.map((bullet, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <Dot size={18} className="text-primary-light shrink-0" />
+                  <span className="font-body text-sm text-white/80">{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           {section.ctaLabel && section.ctaHref && (
             <Link

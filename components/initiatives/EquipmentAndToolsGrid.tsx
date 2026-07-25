@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import {
   Bot, Monitor, Cpu, Radio, Settings, Printer,
   BookOpen, GraduationCap, Archive, Users, BookMarked, Trophy,
@@ -113,35 +114,43 @@ export function EquipmentAndToolsGrid() {
               <motion.div
                 key={tile.id}
                 variants={item}
-                whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(40,89,184,0.10)' }}
+                whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(192,39,45,0.10)' }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className="rounded-xl p-5 sm:p-6 text-center"
+                className="rounded-xl overflow-hidden"
                 style={{
                   background: 'var(--color-surface)',
                   border:     '1px solid var(--color-border)',
                 }}
               >
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
-                  style={{
-                    background: 'rgba(245,154,1,0.12)',
-                    color:      'var(--color-primary-dark)',
-                  }}
-                >
-                  {Icon && <Icon size={20} />}
+                {/* Image (if available) */}
+                {tile.imageSrc ? (
+                  <div className="relative aspect-4/3 w-full overflow-hidden">
+                    <Image
+                      src={tile.imageSrc}
+                      alt={tile.heading}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="w-full flex items-center justify-center py-6"
+                    style={{ background: 'rgba(245,154,1,0.08)' }}
+                  >
+                    {Icon && <Icon size={32} style={{ color: 'var(--color-primary-dark)' }} />}
+                  </div>
+                )}
+
+                {/* Title only — no body paragraph */}
+                <div className="px-4 py-3">
+                  <p
+                    className="font-body text-sm font-bold leading-snug"
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    {tile.heading}
+                  </p>
                 </div>
-                <p
-                  className="font-body text-sm font-bold mb-1"
-                  style={{ color: 'var(--color-text)' }}
-                >
-                  {tile.heading}
-                </p>
-                <p
-                  className="font-body text-xs leading-relaxed"
-                  style={{ color: 'var(--color-text-muted)' }}
-                >
-                  {tile.body}
-                </p>
               </motion.div>
             )
           })}

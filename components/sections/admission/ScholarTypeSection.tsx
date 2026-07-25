@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { CheckCircle2, Sun, Home as HomeIcon, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { scholarTypes } from '@/data/admission'
 import { useReveal } from '@/hooks/useReveal'
@@ -50,7 +51,7 @@ export function ScholarTypeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, ease }}
-            className="bg-surface border-2 border-primary rounded-2xl p-7 md:p-8 flex flex-col"
+            className="relative z-10 bg-surface border-2 border-primary rounded-2xl p-7 md:p-8 flex flex-col pb-24"
           >
             {(() => {
               const st = scholarTypes[0]
@@ -88,6 +89,19 @@ export function ScholarTypeSection() {
                     {st.ctaLabel}
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
                   </Link>
+
+                  {/* Student PNG + talk bubble */}
+                  {st.studentQuote && (
+                    <div className="absolute -z-[1] bottom-16 right-4 flex items-end gap-2 translate-y-1/4">
+                      <div className="relative bg-primary-light text-white text-xs font-semibold px-3 py-2 rounded-xl rounded-br-none max-w-[140px] text-center shadow-md">
+                        {st.studentQuote}
+                        <span className="absolute bottom-0 right-3 translate-y-full w-0 h-0 border-l-[6px] border-l-transparent border-t-[6px] border-t-primary-light" />
+                      </div>
+                      {st.studentImage && (
+                        <Image src={st.studentImage} alt="AIS day scholar student" width={160} height={300} className="object-contain" />
+                      )}
+                    </div>
+                  )}
                 </>
               )
             })()}
@@ -99,7 +113,7 @@ export function ScholarTypeSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, delay: 0.12, ease }}
-            className="bg-primary rounded-2xl p-7 md:p-8 flex flex-col"
+            className="relative z-10 bg-primary rounded-2xl p-7 md:p-8 flex flex-col pb-24"
           >
             {(() => {
               const st = scholarTypes[1]
@@ -137,6 +151,19 @@ export function ScholarTypeSection() {
                     {st.ctaLabel}
                     <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-1" />
                   </Link>
+
+                  {/* Student PNG + talk bubble */}
+                  {st.studentQuote && (
+                    <div className="absolute -z-[1] bottom-12 right-4 flex items-end gap-2 translate-y-1/4">
+                      <div className="relative bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-2 rounded-xl rounded-br-none max-w-[140px] text-center shadow-md">
+                        {st.studentQuote}
+                        <span className="absolute bottom-0 right-3 translate-y-full w-0 h-0 border-l-[6px] border-l-transparent border-t-[6px] border-t-white/20" />
+                      </div>
+                      {st.studentImage && (
+                        <Image src={st.studentImage} alt="AIS boarding student" width={160} height={300} className="object-contain" />
+                      )}
+                    </div>
+                  )}
                 </>
               )
             })()}

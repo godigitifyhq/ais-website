@@ -152,7 +152,7 @@ export function HeroAdmissionForm({ variant = 'hero' }: Props) {
             >
               <option value="" disabled>Select Class</option>
               {GRADE_OPTIONS.map(g => (
-                <option key={g} value={g}>{g}</option>
+                <option className='text-black' key={g} value={g}>{g}</option>
               ))}
             </select>
             {errors.grade && <p className={errorClass}>{errors.grade.message}</p>}

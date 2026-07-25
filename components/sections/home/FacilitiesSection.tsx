@@ -7,12 +7,12 @@ import { facilities, type Facility } from '@/data/home'
 import { GhostSectionHeading } from '@/components/ui/GhostSectionHeading'
 
 const imageOverride: Record<string, string> = {
-  academics:  '/images/home/library.png',
-  sports:     '/images/home/sport.png',
-  arts:       '/images/home/audi.png',
-  robotics:   '/images/home/Robolab1.png',
+  academics:  '/images/home/library1.png',
+  sports:     '/images/home/sports.png',
+  arts:       '/images/home/events.png',
+  robotics:   '/images/home/robotics-lab.png',
   pool:       '/images/home/experience.png',
-  hostel:     '/images/home/hostel.png',
+  hostel:     '/images/home/hostel1.png',
 }
 
 const ease = [0.33, 1, 0.68, 1] as const

@@ -12,7 +12,8 @@ const quickLinks = [
 ]
 
 const academicLinks = [
-  { label: 'CBSE Curriculum',          href: '/about#academics' },
+  { label: 'CBSE Corner',          href: '/cbse-corner' },
+  { label: 'CBSE Curriculum',          href: '/resources' },
   { label: 'Admission Process',        href: '/admission' },
   { label: 'Robotics & Initiatives',   href: '/initiatives' },
   { label: 'Blogs',                    href: '/blogs' },
@@ -24,6 +25,7 @@ const connectLinks = [
   { label: 'Admission Enquiry', href: '/admission' },
   { label: 'Jobs at AIS',      href: '/jobs' },
   { label: 'Privacy Policy',   href: '/privacy' },
+  { label: 'Terms & Conditions', href: '/terms' },
 ]
 
 export function Footer() {
@@ -136,6 +138,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Alliance International School, Banur. All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
           </div>
         </div>

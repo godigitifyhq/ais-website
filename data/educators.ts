@@ -30,12 +30,16 @@ export const educatorSections: SkewedSection[] = [
     headingPlain:  'Teachers as',
     headingAccent: 'Learners',
     body: [
-      'Our teachers are aware of, and appreciate the individual ability and appetite of every child. Their mission is to maintain a continuous learning process — at every step they learn from their students as much as students learn from them.',
-      'Our educators employ globally recognised, tried-and-tested discoveries to unearth each child\'s hidden potential. They are deeply influenced by traditional Indian wisdom — caring, devoted, and ever-curious.',
+      'Our teachers learn from students as much as students learn from them — a continuous, mutual journey.',
+    ],
+    bullets: [
+      'Curiosity-first classrooms',
+      'Globally recognised methods',
+      'Traditional wisdom meets modern pedagogy',
     ],
     ctaLabel:      'Meet Our Faculty',
     ctaHref:       '/educators#faculty',
-    imageSrc:      '/images/educators/teachers-as-learners.jpg',
+    imageSrc:      '/images/educators/teachers-as-learners.png',
     imageAlt:      'AIS teacher engaged in a classroom discussion with students',
     imagePosition: 'left',
   },
@@ -46,10 +50,14 @@ export const educatorSections: SkewedSection[] = [
     headingPlain:  'Teachers as Support',
     headingAccent: 'System',
     body: [
-      'A student-centred model at AIS acknowledges that students possess diverse learning styles and grasp information at varying paces. Our educators embrace and welcome various learning approaches, whether in group settings or individually.',
-      'Educators at AIS assume the role of guides and facilitators — offering support, encouragement, feedback, and answers to questions. AIS has created an atmosphere that promotes genuine learning, fosters creativity, and embraces diverse perspectives.',
+      'Guides and facilitators — not lecturers. AIS educators adapt to every learning pace and style.',
     ],
-    imageSrc:      '/images/educators/teachers-support-system.jpg',
+    bullets: [
+      'One-on-one guidance when needed',
+      'Group and individual approaches',
+      'Safe space for every question',
+    ],
+    imageSrc:      '/images/educators/teacher-as-support.png',
     imageAlt:      'AIS teacher guiding a student one-on-one',
     imagePosition: 'right',
   },
@@ -60,12 +68,16 @@ export const educatorSections: SkewedSection[] = [
     headingPlain:  'Trained &',
     headingAccent: 'Experienced Teachers',
     body: [
-      'Our well-trained and experienced faculty hold advanced university degrees. Regular trainings, re-trainings, and workshops are held with expert faculty to hone teaching skills and orient teachers to new teaching methodologies.',
-      'These efforts bring out hidden qualities that are latest while also providing ample opportunity to learn from and absorb trends that are at par with global standards of teaching.',
+      'Advanced degrees, regular workshops, and global standards — our faculty never stops growing.',
+    ],
+    bullets: [
+      'Post-graduate qualified faculty',
+      'Regular upskilling & retraining',
+      'Global teaching methodology exposure',
     ],
     ctaLabel:      'View Qualifications',
     ctaHref:       '/educators#qualifications',
-    imageSrc:      '/images/educators/teachers-experienced.jpg',
+    imageSrc:      '/images/educators/teacher-training.png',
     imageAlt:      'AIS faculty in a professional development workshop',
     imagePosition: 'left',
   },
@@ -76,14 +88,38 @@ export const educatorSections: SkewedSection[] = [
     headingPlain:  'Beyond',
     headingAccent: 'Academics',
     body: [
-      'At AIS, we go above and beyond academics to bring out the best in our students. Teachers are quick to notice academic and fine artistic abilities, performance abilities, and athletic aptitude.',
-      'These co-curricular activities are an important element of our educational programme — they promote a child\'s physical, mental, and emotional growth.',
+      'Teachers at AIS spot talent early — in academics, arts, sports, and performance — and nurture it.',
+    ],
+    bullets: [
+      'Co-curricular mentorship',
+      'Early talent identification',
+      'Holistic growth across all domains',
     ],
     ctaLabel:      'Explore Activities',
     ctaHref:       '/life-at-alliance',
-    imageSrc:      '/images/educators/teachers-beyond-academics.jpg',
+    imageSrc:      '/images/educators/teachers-beyond-academics.png',
     imageAlt:      'AIS students engaged in co-curricular activities with a teacher',
     imagePosition: 'right',
+  },
+  {
+    id:            'mentors',
+    ghostLabel:    'MENTORS',
+    eyebrow:       'Teachers as',
+    headingPlain:  'Guides &',
+    headingAccent: 'Mentors',
+    body: [
+      'Senior faculty at AIS go beyond classrooms — they guide our working members, ensuring smooth operations and passing on institutional values.',
+    ],
+    bullets: [
+      'On-site mentoring for support staff and DAs',
+      'Workshops on safety, maintenance and school routines',
+      'A strengthening pillar of Alliance’s culture',
+    ],
+    ctaLabel:      'Read Our Mentorship Work',
+    ctaHref:       '/educators#mentorship',
+    imageSrc:      '/images/educators/senior-guiding-staff.png',
+    imageAlt:      'Senior faculty conducting a workshop for support staff and DAs',
+    imagePosition: 'left',
   },
 ]
 
@@ -102,6 +138,49 @@ export const managementQuote = {
   text:        'Teachers who love teaching, teach children to love learning.',
   attribution: 'Robert John Meehan',
 }
+
+// ─── TEACHER PROFILES ─────────────────────────────────────────────────────────
+
+// ─── TEACHING ACTION IMAGES ──────────────────────────────────────────────────
+
+export interface TeachingActionImage {
+  src:          string
+  alt:          string
+  activityLabel: string
+}
+
+export const teachingActionImages: TeachingActionImage[] = [
+  {
+    src:          '/images/educators/science.png',
+    alt:          'AIS teacher facilitating science experiment with students',
+    activityLabel: 'Hands-on Science',
+  },
+  {
+    src:          '/images/educators/teacher-with-student.png',
+    alt:          'AIS teacher engaged in collaborative maths activity',
+    activityLabel: 'Collaborative Maths',
+  },
+  {
+    src:          '/images/educators/guided-learning.png',
+    alt:          'AIS teacher guiding reading in the school library',
+    activityLabel: 'Guided Reading',
+  },
+  {
+    src:          '/images/educators/sports.png',
+    alt:          'AIS sports coach training students on the field',
+    activityLabel: 'Sports Coaching',
+  },
+  {
+    src:          '/images/educators/art-teacher.png',
+    alt:          'AIS arts teacher facilitating student art project',
+    activityLabel: 'Art Facilitation',
+  },
+  {
+    src:          '/images/educators/real-world-solve.png',
+    alt:          'AIS teacher guiding students through robotics problem-solving',
+    activityLabel: 'Real-World Problem Solving',
+  },
+]
 
 // ─── TEACHER PROFILES ─────────────────────────────────────────────────────────
 

@@ -107,13 +107,22 @@ export function CampusBlockSection({ block, index }: Props) {
               <span className="font-accent italic">{block.headingAccent}</span>
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-6">
               {block.body.map((para, i) => (
                 <p key={i} className="font-body text-sm lg:text-base leading-relaxed text-white/90">
                   {para}
                 </p>
               ))}
             </div>
+
+            {block.studentQuote && (
+              <div className="border-t border-white/20 pt-5 mt-2">
+                <p className="font-accent italic text-base text-primary-light leading-snug">
+                  &ldquo;{block.studentQuote.text}&rdquo;
+                </p>
+                <p className="font-body text-xs text-white/50 mt-1.5">— {block.studentQuote.name}</p>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

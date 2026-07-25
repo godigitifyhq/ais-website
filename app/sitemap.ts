@@ -11,6 +11,9 @@ const routes = [
   '/gallery',
   '/blogs',
   '/contact',
+  '/resources',
+  '/terms',
+  '/privacy',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

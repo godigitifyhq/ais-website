@@ -24,7 +24,7 @@ export default function CBSECornerPage() {
       <CBSEUpdatesStrip />
       <DocumentsGrid />
       <BookListCTA />
-      <SyllabusSection />
+      {/* <SyllabusSection /> */}
       <ImportantDates />
       <WhyCBSE />
       <FAQAccordion />

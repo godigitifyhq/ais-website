@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 const navItems = [
   { id: 'kindergarten-block',   label: 'Kindergarten Block' },
   { id: 'academic-block',       label: 'Academic Block'     },
-  { id: 'staff-residence',      label: 'Staff Residence'    },
+  { id: 'infirmary',      label: 'Infirmary'    },
   { id: 'administrative-block', label: 'Admin Block'        },
   { id: 'sports-grounds',       label: 'Sports'             },
   { id: 'arts-fine-arts',       label: 'Arts Studio'        },

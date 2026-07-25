@@ -7,8 +7,8 @@ import { GhostSectionHeading } from '@/components/ui/GhostSectionHeading'
 const imageMap: Record<string, string> = {
   joyful:       '/images/home/experience.png',
   experiential: '/images/home/Robolab1.png',
-  confidence:   '/images/home/audi.png',
-  transport:    '/images/home/transport.png',
+  confidence:   '/images/home/candid-4.png',
+  transport:    '/images/home/candid-5.png'
 }
 
 const ease = [0.33, 1, 0.68, 1] as const

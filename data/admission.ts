@@ -8,13 +8,15 @@ export interface ProcessStep {
 }
 
 export interface ScholarType {
-  id:          'day' | 'boarding'
-  icon:        string
-  title:       string
-  tagline:     string
-  features:    string[]
-  highlight:   string
-  ctaLabel:    string
+  id:           'day' | 'boarding'
+  icon:         string
+  title:        string
+  tagline:      string
+  features:     string[]
+  highlight:    string
+  ctaLabel:     string
+  studentImage?: string
+  studentQuote?: string
 }
 
 export interface FeeRow {
@@ -105,24 +107,26 @@ export const processSteps: ProcessStep[] = [
 
 export const scholarTypes: ScholarType[] = [
   {
-    id:       'day',
-    icon:     'Sun',
-    title:    'Day Scholar',
-    tagline:  'Home every evening. Excellence every day.',
+    id:           'day',
+    icon:         'Sun',
+    title:        'Day Scholar',
+    tagline:      'Home every evening. Excellence every day.',
     features: [
       'GPS-tracked transport covering 50km radius',
       'Full access to all academic and sports facilities',
       'After-school activity programmes',
       'Digital parent communication via AIS App',
     ],
-    highlight: '₹3,360 / month onwards',
-    ctaLabel:  'Day Scholar Fees',
+    highlight:    '₹3,360 / month onwards',
+    ctaLabel:     'Day Scholar Fees',
+    studentImage: '/images/admission/student-1.png',
+    studentQuote: 'Best of both worlds!',
   },
   {
-    id:       'boarding',
-    icon:     'Home',
-    title:    'Boarding / Hostel',
-    tagline:  'A second home designed for growth.',
+    id:           'boarding',
+    icon:         'Home',
+    title:        'Boarding / Hostel',
+    tagline:      'A second home designed for growth.',
     features: [
       'Fully furnished, supervised hostel accommodation',
       'Nutritious meals — breakfast, lunch, dinner',
@@ -130,8 +134,10 @@ export const scholarTypes: ScholarType[] = [
       'Sports academy included (₹250/month)',
       'Regular health check-ups and medical support',
     ],
-    highlight: '₹1,56,000 / year (new admission)',
-    ctaLabel:  'Boarding Fees',
+    highlight:    '₹1,56,000 / year (new admission)',
+    ctaLabel:     'Boarding Fees',
+    studentImage: '/images/admission/student-2.png',
+    studentQuote: 'Home away from home!',
   },
 ]
 

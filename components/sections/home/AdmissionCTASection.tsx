@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
 import { HeroAdmissionForm } from '@/components/sections/home/HeroAdmissionForm'
@@ -18,9 +19,21 @@ export function AdmissionCTASection() {
 
   return (
     <section ref={ref} className="relative bg-primary overflow-hidden py-20 lg:py-28">
+      {/* admission-cta.png - /images/admission-cta.png */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/admission-cta.png"
+          alt=""
+          fill
+          priority
+          className="object-cover mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-linear-to-br from-black/95 via-black/80 to-black/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
+      </div>
 
       {/* ── Radial gradient texture ── */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -29,10 +42,10 @@ export function AdmissionCTASection() {
             radial-gradient(ellipse at 80% 20%, rgba(155, 27, 32, 0.30) 0%, transparent 50%)
           `,
         }}
-      />
+      /> */}
 
       {/* ── Decorative background shapes ── */}
-      <span
+      {/* <span
         aria-hidden="true"
         className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/[0.04] pointer-events-none"
       />
@@ -43,7 +56,7 @@ export function AdmissionCTASection() {
       <span
         aria-hidden="true"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] rounded-full bg-primary-dark/40 blur-3xl pointer-events-none"
-      />
+      /> */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-20 items-center">

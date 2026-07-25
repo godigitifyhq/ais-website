@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
@@ -10,11 +11,24 @@ export function JoinTeamCTA() {
   const { ref, inView } = useReveal(0.15)
 
   return (
-    <section className="bg-primary py-24 lg:py-32 overflow-hidden relative">
+    <section className="bg-black py-24 lg:py-32 overflow-hidden relative">
+      {/* bg-image-cta.png - /images/educators/bg-image-cta.png */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/educators/bg-image-cta.png"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-50 mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-linear-to-br from-black/95 via-black/80 to-black/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_55%)]" />
+      </div>
+
       {/* Ghost label */}
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display font-black uppercase leading-none select-none pointer-events-none whitespace-nowrap text-white/[0.05] text-[5rem] sm:text-[8rem] lg:text-[12rem]"
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-display font-black uppercase leading-none select-none pointer-events-none whitespace-nowrap text-white/5 text-[5rem] sm:text-[8rem] lg:text-[12rem]"
       >
         JOIN US
       </span>

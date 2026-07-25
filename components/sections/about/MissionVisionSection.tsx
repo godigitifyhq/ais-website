@@ -29,7 +29,7 @@ const rows: {
     sub:    'Where we are headed',
     body:   visionContent.body,
     textBg: 'bg-text',
-    image:  '/images/about/vision.jpg',
+    image:  '/images/about/vission.png',
     flip:   true,
   },
 ]
@@ -56,7 +56,7 @@ function Row({ row }: { row: typeof rows[0] }) {
           src={row.image}
           alt={label}
           fill
-          className="object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+          className="object-contain object-center transition-transform duration-700 hover:scale-[1.03]"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </motion.div>

@@ -3,6 +3,12 @@ export interface StudentQuote {
   name: string
 }
 
+export interface BlockGalleryItem {
+  src:   string
+  alt:   string
+  label: string
+}
+
 export interface CampusBlock {
   id: string
   anchorId: string
@@ -14,6 +20,12 @@ export interface CampusBlock {
   imageSrc: string
   imageAlt: string
   imagePosition: 'left' | 'right'
+  /**
+   * A captioned photo row showing what is actually inside this block. Takes the
+   * place of `features` when present — real rooms persuade parents more than
+   * icon tiles, and rendering both would double the block's height.
+   */
+  gallery?: BlockGalleryItem[]
   features?: BlockFeature[]
   studentQuote?: StudentQuote
 }
@@ -130,16 +142,16 @@ export const campusBlocks: CampusBlock[] = [
     ghostLabel: 'NURTURE',
     body: [
       "A safe and secure environment can leverage a child's inherent skills. Children's minds function like a sponge, rapidly absorbing the surroundings in which they play, eat, study and sleep. Alliance assures that each child will be under the constant supervision of trained, experienced and ever-residential staff at all times.",
-      "We've created an environment designed toward individual development — focused on the overall growth of our tiny tots. A safe and secure environment leverages children's inherent ability to easily focus on discovery and growth.",
+      "We've created an environment designed toward individual development — focused on the overall growth of our tiny tots. Corridors are low-lit, colour-coded and lined with porthole windows at a child's eye level, so even the walk to class is part of the learning.",
+      'Beyond the classroom door sits a fenced early-years play zone of its own: swings, a trampoline, a multi-level climbing structure with slides, and the Alliance toy train — all on soft grass, all within sight of supervising staff.',
     ],
-    imageSrc: '/images/infrastructure/kindergarten-block.png',
-    imageAlt: 'AIS Kindergarten block — bright, safe learning environment',
+    imageSrc: '/images/infrastructure/kg-corridor.jpg',
+    imageAlt: 'AIS Kindergarten corridor — bright colours, porthole windows, and play equipment',
     imagePosition: 'left',
-    features: [
-      { id: 'safe',      icon: 'Shield',  label: 'Joyful Learning in Safe Environment'           },
-      { id: 'hands-on',  icon: 'Hammer',  label: 'Practical Hands-on, Experiential Learning'     },
-      { id: 'skills',    icon: 'Brain',   label: 'Instils Confidence & Problem-Solving Skills'   },
-      { id: 'transport', icon: 'Bus',     label: 'Well Connected with World-class Transport'     },
+    gallery: [
+      { src: '/images/infrastructure/play-zone.jpg',      alt: 'AIS early-years play zone with swings, trampoline and shaded gazebo', label: 'Play Zone'      },
+      { src: '/images/infrastructure/play-structure.jpg', alt: 'Multi-level play structure with slides and climbing nets',            label: 'Slides & Climbs' },
+      { src: '/images/infrastructure/play-train.jpg',     alt: 'The Alliance toy train ride in the kindergarten garden',              label: 'Toy Train'      },
     ],
     studentQuote: {
       text: 'My favourite place in school!',
@@ -155,11 +167,16 @@ export const campusBlocks: CampusBlock[] = [
     ghostLabel: 'LEARN',
     body: [
       'Alliance has spacious and well-designed classrooms and air-conditioned rooms. All classrooms are equipped with Smart Boards, Audio-Visual Teaching Aids, Overhead Projectors, CCTV and all facilities suiting modern learning arrangements.',
-      'From educational films and slide shows in the classrooms, it is possible to improve the academic performance of the students, thereby improving the framework of their learning rooms.',
+      'The block is more than its classrooms. A reference library with individual reading carrels, periodicals and a newspaper stand sits alongside a full computer lab — so research, reading and hands-on practice all happen under one roof.',
     ],
-    imageSrc: '/images/infrastructure/academic-block.png',
-    imageAlt: 'AIS Academic Block — equipped classrooms with modern teaching aids',
+    imageSrc: '/images/infrastructure/classroom.jpg',
+    imageAlt: 'An AIS classroom — spacious, naturally lit, with individual desks',
     imagePosition: 'right',
+    gallery: [
+      { src: '/images/infrastructure/library-reading.jpg',   alt: 'AIS library reading room with individual carrels and periodical racks', label: 'Library'       },
+      { src: '/images/infrastructure/computer-lab.jpg',      alt: 'AIS computer lab with individual workstations',                        label: 'Computer Lab'  },
+      { src: '/images/infrastructure/academic-corridor.jpg', alt: 'Academic block corridor lined with student display boards',             label: 'The Corridors' },
+    ],
     studentQuote: {
       text: 'I actually look forward to class every day.',
       name: 'Aryan, Class 8',
@@ -205,11 +222,15 @@ export const campusBlocks: CampusBlock[] = [
   },
 ]
 
+// NOTE: FacilityInUseSection was removed from the page — it sat directly below
+// CampusGalleryStrip and showed the same campus in the same way, costing a full
+// extra screen of scrolling for no new information. Data kept in case the band
+// is wanted elsewhere.
 export const facilityInUseItems: FacilityInUseItem[] = [
   { src: '/images/infrastructure/science.jpg',      alt: 'Students conducting science experiments in AIS lab',  label: 'LABS'  },
-  { src: '/images/infrastructure/sports-grounds.png', alt: 'AIS students playing sports on the school field',   label: 'FIELD' },
-  { src: '/images/infrastructure/medical.png',         alt: 'AIS Medical facilities',                  label: 'INFIRMARY'  },
-  { src: '/images/infrastructure/arts-studio.png',   alt: 'AIS students performing on the arts studio stage',   label: 'STAGE' },
+  { src: '/images/infrastructure/main-ground.jpg',  alt: 'AIS students playing sports on the school field',     label: 'FIELD' },
+  { src: '/images/infrastructure/medical.png',      alt: 'AIS Medical facilities',                              label: 'INFIRMARY'  },
+  { src: '/images/infrastructure/arts-studio.png',  alt: 'AIS students performing on the arts studio stage',    label: 'STAGE' },
 ]
 
 export const sportsData = {
@@ -218,19 +239,24 @@ export const sportsData = {
   headingPlain: 'Sports &',
   headingAccent: 'Grounds',
   ghostLabel: 'PLAY',
-  imageSrc: '/images/infrastructure/sports-grounds.png',
-  imageAlt: 'AIS students at the sports ground during physical education',
+  imageSrc: '/images/infrastructure/courts.jpg',
+  imageAlt: 'AIS all-weather basketball and volleyball courts',
   body: [
-    'AIS is equipped with a swimming pool, football field, tennis court, cricket ground and basketball court. Apart from these there are many sporting facilities for junior students.',
-    'There is regular arrangement for different sports classes through the year with students opting to choose and play a sport of their choice in the after-hours.',
+    'Sport at Alliance is not an afterthought squeezed into a corner of the campus — it has its own ground. All-weather synthetic courts host basketball, volleyball and tennis, while a full-size open field carries athletics, football and cricket through the season.',
+    'A dedicated net enclosure lets cricketers train on batting and bowling year-round, whatever is happening on the main ground. Sports classes run right through the year, and students choose the discipline they want to pursue in the after-hours.',
   ],
+  gallery: [
+    { src: '/images/infrastructure/courts.jpg',       alt: 'All-weather basketball and volleyball courts at AIS',        label: 'All-Weather Courts' },
+    { src: '/images/infrastructure/main-ground.jpg',  alt: 'The main open ground at AIS used for athletics and cricket', label: 'The Main Ground'    },
+    { src: '/images/infrastructure/cricket-nets.jpg', alt: 'Covered cricket practice nets at AIS',                       label: 'Cricket Nets'       },
+  ] as BlockGalleryItem[],
   features: [
-    { id: 'swimming', icon: 'Waves',     label: 'Swimming Pool'    },
-    { id: 'football', icon: 'CircleDot', label: 'Football Field'   },
-    { id: 'tennis',   icon: 'Activity',  label: 'Tennis Court'     },
-    { id: 'cricket',  icon: 'Target',    label: 'Cricket Ground'   },
-    { id: 'basket',   icon: 'CircleDot', label: 'Basketball Court' },
-    { id: 'track',    icon: 'Timer',     label: 'Running Track'    },
+    { id: 'basket',     icon: 'CircleDot', label: 'Basketball Court'  },
+    { id: 'volleyball', icon: 'Volleyball',label: 'Volleyball Court'  },
+    { id: 'tennis',     icon: 'Activity',  label: 'Tennis Court'      },
+    { id: 'cricket',    icon: 'Target',    label: 'Cricket Nets & Ground' },
+    { id: 'football',   icon: 'CircleDot', label: 'Football Field'    },
+    { id: 'track',      icon: 'Timer',     label: 'Athletics Track'   },
   ],
   competitionsNote: 'Regular intra-school competitions are held on campus to encourage participation and healthy competition.',
 }
@@ -279,16 +305,31 @@ export const staffFacilitiesData = {
   anchorId: 'staff-facilities',
   sectionHeading: { plain: 'Staff', accent: 'Facilities' },
   ghostLabel: 'STAFF',
-  quarters: {
-    icon: 'Home',
-    heading: "Staff's Quarters",
-    body: 'The selected fraternity resides at furnished staff quarters provided for teachers. Separate accommodation is provided for housekeeping staff and service personnel.',
-  },
-  cafeteria: {
-    icon: 'UtensilsCrossed',
-    heading: 'Self-Service Cafeteria',
-    body: 'A fully equipped self-service cafeteria is available for staff and senior students, serving nutritious, hygienic meals prepared with care.',
-  },
+  intro: 'A teacher who is looked after teaches better. Alliance gives its faculty proper space to plan, mark and think — not a corner of a classroom.',
+  spaces: [
+    {
+      id:      'workroom',
+      src:     '/images/infrastructure/staff-workroom.jpg',
+      alt:     'AIS faculty workroom with individual planning desks',
+      heading: 'Faculty Workrooms',
+      body:    'Individual planning desks with partitions, so lesson preparation and marking happen in quiet, dedicated space.',
+    },
+    {
+      id:      'staffroom',
+      src:     '/images/infrastructure/staff-room.jpg',
+      alt:     'The AIS staff room — shared desks and collaboration space',
+      heading: 'The Staff Room',
+      body:    'A shared room where departments meet, co-plan across subjects, and hand over between shifts.',
+    },
+    {
+      id:      'pantry',
+      src:     '/images/infrastructure/staff-pantry.jpg',
+      alt:     'AIS staff pantry with refreshment counter',
+      heading: 'Pantry & Cafeteria',
+      body:    'An in-house pantry for refreshments, plus a self-service cafeteria serving nutritious, hygienic meals to staff and senior students.',
+    },
+  ],
+  quartersNote: 'Furnished on-campus quarters are provided for resident teaching staff, with separate accommodation for housekeeping and service personnel.',
 }
 
 export const transportData = {
@@ -298,11 +339,11 @@ export const transportData = {
   headingAccent: 'Services',
   ghostLabel: 'COMMUTE',
   body: [
-    'AIS provides school transportation to all its students to and from school throughout the year. AIS currently has a bus fleet which is fully in compliance with norms applicable to school buses: each bus has a trained staff member ensuring a safe trip for every student.',
-    'All transport vehicles are GPS-tracked and inspected quarterly. Parents can rest assured their child is in safe hands from door to school and back.',
+    'AIS runs its own fleet — full-size buses for the longer routes and smaller vans for the closer neighbourhoods — covering a 50km radius around Banur throughout the year. Every vehicle complies in full with CBSE and state norms applicable to school transport.',
+    'Each bus carries a trained staff member alongside the driver, so no child travels unaccompanied. Vehicles are GPS-tracked and inspected quarterly, and the school contact number is printed on every bus. From the front gate to your door, your child stays in sight.',
   ],
-  imageSrc: '/images/infrastructure/transport.png',
-  imageAlt: 'AIS school transport fleet — safe and GPS-tracked buses',
+  imageSrc: '/images/infrastructure/transport-fleet.jpg',
+  imageAlt: 'The Alliance International School bus fleet lined up at the school gate',
   features: [
     { id: 'gps',     icon: 'MapPin',         label: 'GPS Tracked Vehicles'        },
     { id: 'staff',   icon: 'UserCheck',      label: 'Trained Staff On Every Bus'  },
@@ -311,13 +352,13 @@ export const transportData = {
   ],
 }
 
+// Five tiles: one 2×2 feature plus four. Kept deliberately short — the campus
+// blocks below already carry their own photography, and the full set lives at
+// /gallery.
 export const galleryPhotos: GalleryPhoto[] = [
-  { id: 'g1', src: '/images/infrastructure/main.jpg', alt: 'AIS main building facade',       caption: 'Main Building'  },
-  { id: 'g2', src: '/images/infrastructure/indoor.jpg', alt: 'AIS indoor corridor',             caption: 'Indoor Spaces'  },
-  { id: 'g3', src: '/images/infrastructure/sports-ground.png', alt: 'AIS outdoor sports ground',       caption: 'Sports Grounds' },
-  { id: 'g4', src: '/images/infrastructure/kindergarten.jpg', alt: 'AIS kindergarten play area',      caption: 'KG Play Area'   },
-  { id: 'g5', src: '/images/infrastructure/science.jpg', alt: 'AIS science laboratory',          caption: 'Science Lab'    },
-  { id: 'g6', src: '/images/infrastructure/art.jpg', alt: 'AIS arts and craft studio',       caption: 'Arts Studio'    },
-  { id: 'g7', src: '/images/infrastructure/library.jpg', alt: 'AIS library reading room',        caption: 'Library'        },
-  { id: 'g8', src: '/images/infrastructure/robotics.jpg', alt: 'AIS swimming pool area',          caption: 'Robotics Lab'  },
+  { id: 'g1', src: '/images/infrastructure/play-swings.jpg', alt: 'AIS early-years play area with swings and merry-go-round', caption: 'Early-Years Play' },
+  { id: 'g2', src: '/images/infrastructure/science.jpg',     alt: 'AIS science laboratory',                                   caption: 'Science Lab'      },
+  { id: 'g3', src: '/images/infrastructure/main-ground.jpg', alt: 'The main open ground at AIS',                              caption: 'The Main Ground'  },
+  { id: 'g4', src: '/images/infrastructure/arts-studio.png', alt: 'AIS students performing on the arts studio stage',         caption: 'Arts Studio'      },
+  { id: 'g5', src: '/images/infrastructure/robotics.jpg',    alt: 'AIS Robotics Lab',                                         caption: 'Robotics Lab'     },
 ]

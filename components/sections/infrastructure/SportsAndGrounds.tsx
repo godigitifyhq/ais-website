@@ -85,6 +85,34 @@ export function SportsAndGrounds() {
             })}
           </div>
 
+          {/* The three grounds, as they actually are */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            {sportsData.gallery.map((item, i) => (
+              <motion.figure
+                key={item.src}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.3 + i * 0.08, ease }}
+                className="relative aspect-4/3 rounded-xl overflow-hidden group"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 100vw, 30vw"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/70 to-transparent"
+                />
+                <figcaption className="absolute bottom-3 left-4 font-body text-xs font-bold tracking-[0.12em] uppercase text-white">
+                  {item.label}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+
           {/* Competitions note */}
           <p className="font-accent italic text-base text-text-muted border-t border-border pt-6">
             {sportsData.competitionsNote}

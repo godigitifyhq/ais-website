@@ -127,8 +127,40 @@ export function CampusBlockSection({ block, index }: Props) {
         </motion.div>
       </div>
 
+      {/* ── What's inside this block (optional) ── */}
+      {block.gallery && block.gallery.length > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12 lg:pb-16 pt-6 lg:pt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
+            {block.gallery.map((item, i) => (
+              <motion.figure
+                key={item.src}
+                initial={{ opacity: 0, y: 18 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.3 + i * 0.08, ease }}
+                className="relative aspect-4/3 rounded-xl overflow-hidden group"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/70 to-transparent"
+                />
+                <figcaption className="absolute bottom-3 left-4 font-body text-xs font-bold tracking-[0.12em] uppercase text-white">
+                  {item.label}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* ── Feature tiles (optional) ── */}
-      {block.features && block.features.length > 0 && (
+      {!block.gallery && block.features && block.features.length > 0 && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-1 relative z-10 pb-12 lg:pb-16 pt-6 lg:pt-0">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {block.features.map((feat, i) => {

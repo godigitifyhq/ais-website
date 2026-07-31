@@ -4,7 +4,6 @@ import { InfraPageHero }             from '@/components/sections/infrastructure/
 import { CampusPhilosophy }          from '@/components/sections/infrastructure/CampusPhilosophy'
 import { CampusOverview }            from '@/components/sections/infrastructure/CampusOverview'
 import { CampusGalleryStrip }        from '@/components/sections/infrastructure/CampusGalleryStrip'
-import { FacilityInUseSection }      from '@/components/sections/infrastructure/FacilityInUseSection'
 import { AllianceDifferenceInfra }   from '@/components/sections/infrastructure/AllianceDifferenceInfra'
 import { CampusBlocksNav }           from '@/components/sections/infrastructure/CampusBlocksNav'
 import { CampusBlockSection }        from '@/components/sections/infrastructure/CampusBlockSection'
@@ -31,9 +30,11 @@ export default function InfrastructurePage() {
       <CampusPhilosophy />
       <CampusOverview />
 
-      {/* Visual-first: gallery bento + facility-in-use grid appear before block descriptions */}
+      {/* Visual-first: one bento of the campus before the block descriptions.
+          FacilityInUseSection used to sit here too, but it showed the same
+          campus in the same way directly below — a full screen of scrolling
+          for no new information. Each block now carries its own photography. */}
       <CampusGalleryStrip />
-      <FacilityInUseSection />
 
       <AllianceDifferenceInfra />
       <CampusBlocksNav />

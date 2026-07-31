@@ -1,7 +1,8 @@
 'use client'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { admissionOpener } from '@/data/admission'
+import { admissionStoryFilm } from '@/data/videos'
+import { VideoFeature } from '@/components/ui/VideoFeature'
 import { AdmissionEnquiryForm } from './AdmissionEnquiryForm'
 import { SplitHeading }    from '@/components/ui/SplitHeading'
 import { LoopingKeyword } from '@/components/ui/LoopingKeyword'
@@ -73,14 +74,14 @@ export function AdmissionPageOpener() {
         </div>
       </div>
 
-      {/* ── Right: image ── */}
+      {/* ── Right: film ── */}
       <div className="relative overflow-hidden order-1 lg:order-2 aspect-[4/3] lg:aspect-auto">
-        <Image
-          src={admissionOpener.image}
-          alt={admissionOpener.imageAlt}
+        <VideoFeature
+          film={admissionStoryFilm}
           fill
           priority
-          className="object-cover object-center"
+          rounded="rounded-none"
+          className="absolute inset-0"
           sizes="(max-width: 1024px) 100vw, 42vw"
         />
 
@@ -89,7 +90,7 @@ export function AdmissionPageOpener() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
-          className="absolute bottom-0 inset-x-0 bg-primary px-6 py-3"
+          className="absolute bottom-0 inset-x-0 bg-primary px-6 py-3 pointer-events-none z-10"
         >
           <p className="font-accent italic text-sm text-white/90 leading-snug">
             "Every child deserves a school that believes in them."

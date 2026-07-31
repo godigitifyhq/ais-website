@@ -45,3 +45,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# video masters — kept locally, never committed. The web encodes derived from
+# them (hero-loop, campus-tour, admission-story, robotics-lab-film,
+# sports-campus) ARE committed and are what the site actually serves.
+/public/video/hero.mp4
+/public/video/admission-page.mp4
+/public/video/robotics-lab.mp4
+/public/video/sports-new.mp4
+
+# scratch
+/.tmp-video/

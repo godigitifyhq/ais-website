@@ -5,12 +5,15 @@ import { motion } from 'framer-motion'
 import { Play } from 'lucide-react'
 import { videoMoments, type VideoMoment } from '@/data/gallery'
 import { VideoModal } from '@/components/ui/VideoModal'
+import { BackgroundVideo } from '@/components/ui/BackgroundVideo'
 import { SectionHeading } from '@/components/ui/SectionHeading'
+import { useIsMobile } from '@/hooks/useMediaQuery'
 
 const ease = [0.33, 1, 0.68, 1] as const
 
 export function VideoMomentsStrip() {
   const [activeVideo, setActiveVideo] = useState<VideoMoment | null>(null)
+  const isMobile = useIsMobile()
 
   return (
     <>
@@ -27,7 +30,7 @@ export function VideoMomentsStrip() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {videoMoments.map((video, i) => (
               <motion.button
-                key={video.youtubeId}
+                key={video.film.src}
                 type="button"
                 onClick={() => setActiveVideo(video)}
                 initial={{ opacity: 0, y: 24 }}
@@ -37,14 +40,22 @@ export function VideoMomentsStrip() {
                 whileHover={{ y: -4 }}
                 className="group relative aspect-video overflow-hidden rounded-2xl cursor-pointer text-left w-full"
               >
-                {/* Thumbnail */}
-                <Image
-                  src={video.thumbnailSrc}
-                  alt={video.title}
-                  fill
-                  className="object-cover transition-transform duration-400 group-hover:scale-[1.04]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
+                {/* Thumbnail — a live preview loop on mobile, a still on desktop */}
+                {isMobile && video.film.previewLoop ? (
+                  <BackgroundVideo
+                    loop={video.film.previewLoop}
+                    objectPosition="center"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                ) : (
+                  <Image
+                    src={video.film.poster}
+                    alt={video.film.title}
+                    fill
+                    className="object-cover transition-transform duration-400 group-hover:scale-[1.04]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                )}
 
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/45 group-hover:bg-black/55 transition-colors duration-300" />
@@ -62,7 +73,7 @@ export function VideoMomentsStrip() {
                     {video.category}
                   </span>
                   <p className="font-display text-sm font-semibold text-white leading-snug mt-0.5">
-                    {video.title}
+                    {video.film.title}
                   </p>
                 </div>
               </motion.button>
@@ -72,8 +83,10 @@ export function VideoMomentsStrip() {
       </section>
 
       <VideoModal
-        videoUrl={activeVideo ? `https://www.youtube.com/embed/${activeVideo.youtubeId}` : ''}
-        title={activeVideo?.title ?? ''}
+        videoUrl={activeVideo?.film.src ?? ''}
+        poster={activeVideo?.film.poster}
+        ratio={activeVideo?.film.ratio}
+        title={activeVideo?.film.title ?? ''}
         isOpen={activeVideo !== null}
         onClose={() => setActiveVideo(null)}
       />

@@ -65,7 +65,7 @@ export const campusPhilosophy = {
 }
 
 export const campusOverview = {
-  videoId: 'YOUR_YOUTUBE_VIDEO_ID',
+  // The tour film itself lives in data/videos.ts (campusTourFilm).
   videoTitle: 'Alliance International School — Campus Tour',
   heading: 'Our Campus',
   location: 'Banur, Punjab',

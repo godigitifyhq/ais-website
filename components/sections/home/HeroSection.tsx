@@ -5,17 +5,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { heroContent } from '@/data/home'
+import { heroLoop }    from '@/data/videos'
 import { HeroAdmissionForm } from './HeroAdmissionForm'
 import { SplitHeading }     from '@/components/ui/SplitHeading'
 import { LoopingKeyword }  from '@/components/ui/LoopingKeyword'
+import { BackgroundVideo } from '@/components/ui/BackgroundVideo'
 
 const ease = [0.33, 1, 0.68, 1] as const
+
+/**
+ * The hero runs on a silent campus loop. Flip this to false to fall straight
+ * back to the four-banner carousel below, which is kept intact and working.
+ */
+const USE_VIDEO_HERO = true
 
 const formVariant = {
   hidden: { opacity: 0, x: 30 },
   show:   { opacity: 1, x: 0, transition: { duration: 0.6, delay: 0.5, ease } },
 }
 
+// ─── Banner carousel (retained — unused while USE_VIDEO_HERO is true) ─────────
 const banners = [
   { src: heroContent.image,           alt: heroContent.imageAlt },
   { src: '/images/home/banner-2.png', alt: 'Alliance International School campus' },
@@ -29,40 +38,51 @@ export function HeroSection() {
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
+    if (USE_VIDEO_HERO) return
     const timer = setInterval(() => {
       setCurrent(prev => (prev + 1) % banners.length)
     }, SLIDE_INTERVAL)
     return () => clearInterval(timer)
   }, [])
 
+  // With the video running there is no slide to rotate past, so the headline
+  // and enquiry form stay on screen permanently.
+  const showContent = USE_VIDEO_HERO || current === 0
+
   return (
     <>
       <section className="relative min-h-[85svh] flex items-center overflow-hidden">
 
-        {/* Background carousel */}
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={banners[current].src}
-              alt={banners[current].alt}
-              fill
-              priority={current === 0}
-              className="object-cover object-[center_10%]"
-              sizes="90vw"
-            />
-          </motion.div>
-        </AnimatePresence>
+        {/* Background — video loop, or the banner carousel when disabled */}
+        {USE_VIDEO_HERO ? (
+          <div className="absolute inset-0 bg-text">
+            <BackgroundVideo loop={heroLoop} objectPosition="center 35%" priority />
+          </div>
+        ) : (
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={banners[current].src}
+                alt={banners[current].alt}
+                fill
+                priority={current === 0}
+                className="object-cover object-[center_10%]"
+                sizes="90vw"
+              />
+            </motion.div>
+          </AnimatePresence>
+        )}
 
-        {/* Gradient overlay + content — slide 0 only */}
+        {/* Gradient overlay + content */}
         <AnimatePresence>
-          {current === 0 && (
+          {showContent && (
             <motion.div
               key="slide0-content"
               initial={{ opacity: 0 }}
@@ -71,8 +91,11 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
               className="absolute inset-0 z-10"
             >
-              {/* Gradient */}
+              {/* Gradient — the moving footage needs a touch more cover than a still */}
               <div className="absolute inset-0 bg-gradient-to-r from-text/75 via-text/45 to-transparent" />
+              {USE_VIDEO_HERO && (
+                <div aria-hidden="true" className="absolute inset-0 bg-text/25 pointer-events-none" />
+              )}
 
               {/* Text + form */}
               <div className="relative z-10 w-full h-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
@@ -145,7 +168,8 @@ export function HeroSection() {
           )}
         </AnimatePresence>
 
-        {/* Slide indicator dots */}
+        {/* Slide indicator dots — carousel only */}
+        {!USE_VIDEO_HERO && (
         <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-2.5 z-20">
           {banners.map((_, i) => (
             <button
@@ -161,6 +185,7 @@ export function HeroSection() {
             />
           ))}
         </div>
+        )}
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 z-20">

@@ -37,13 +37,7 @@ export interface ProgrammeCard {
   ctaHref:        string
 }
 
-// ─── VIDEO ────────────────────────────────────────────────────────────────────
-
-export const initiativesVideo = {
-  videoId: '62Klg5NTxlk?si=LhVvWNDOn1uY0e13',
-  title:   'Alliance International School — Our Initiatives',
-  caption: 'A glimpse into our Robotics Lab, Sports Academy, and Day Boarding programme.',
-}
+// Videos for this page (roboticsFilm, sportsFilm) live in data/videos.ts.
 
 // ─── ANCHOR NAV ITEMS ─────────────────────────────────────────────────────────
 

@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { campusOverview } from '@/data/infrastructure'
+import { campusTourFilm } from '@/data/videos'
+import { VideoFeature } from '@/components/ui/VideoFeature'
 import { useReveal } from '@/hooks/useReveal'
 
 const ease = [0.33, 1, 0.68, 1] as const
@@ -21,19 +23,12 @@ export function CampusOverview() {
             transition={{ duration: 0.6, delay: 0.15, ease }}
             className="order-1 lg:order-1"
           >
-            <div
-              className="relative w-full overflow-hidden rounded-xl"
-              style={{ aspectRatio: '16 / 9' }}
-            >
-              <iframe
-                src={`https://www.youtube.com/embed/${campusOverview.videoId}?rel=0&modestbranding=1`}
-                title={campusOverview.videoTitle}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
+            <VideoFeature
+              film={campusTourFilm}
+              rounded="rounded-xl"
+              showCaption
+              sizes="(max-width: 1024px) 100vw, 58vw"
+            />
           </motion.div>
 
           {/* Content — order 1 on mobile, order 2 on desktop */}

@@ -1,10 +1,11 @@
+import { VideoFeature } from '@/components/ui/VideoFeature'
+import type { VideoFilm } from '@/data/videos'
+
 interface Props {
-  videoId: string
-  title:   string
-  caption?: string
+  film: VideoFilm
 }
 
-export function VideoEmbed({ videoId, title, caption }: Props) {
+export function VideoEmbed({ film }: Props) {
   return (
     <section
       className="py-10 md:py-16"
@@ -16,30 +17,14 @@ export function VideoEmbed({ videoId, title, caption }: Props) {
        }}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-            title={title}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{
-              position:     'absolute',
-              inset:        0,
-              width:        '100%',
-              height:       '100%',
-              borderRadius: '0.5rem',
-              border:       'none',
-            }}
-          />
-        </div>
+        <VideoFeature film={film} rounded="rounded-lg" sizes="(max-width: 896px) 100vw, 896px" />
 
-        {caption && (
+        {film.caption && (
           <p
             className="text-center mt-4 font-accent italic text-base"
             style={{ color: 'rgba(255,255,255,0.55)' }}
           >
-            {caption}
+            {film.caption}
           </p>
         )}
       </div>

@@ -1,3 +1,5 @@
+import { campusTourFilm, roboticsFilm, sportsFilm, type VideoFilm } from '@/data/videos'
+
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 export type GalleryCategory =
@@ -20,10 +22,8 @@ export interface GalleryImage {
 }
 
 export interface VideoMoment {
-  thumbnailSrc: string
-  title:        string
-  youtubeId:    string
-  category:     string
+  film:     VideoFilm
+  category: string
 }
 
 // ─── Filter Labels ────────────────────────────────────────────────────────────
@@ -353,22 +353,7 @@ export const galleryImages: GalleryImage[] = [
 // ─── Video Moments ────────────────────────────────────────────────────────────
 
 export const videoMoments: VideoMoment[] = [
-  {
-    thumbnailSrc: '/images/initiatives/bg-image.png',
-    title:        'Our Initiatives — Robotics, Sports & Boarding',
-    youtubeId:    '62Klg5NTxlk?si=LhVvWNDOn1uY0e13',
-    category:     'Initiatives',
-  },
-  {
-    thumbnailSrc: '/images/home/campus-image.jpg',
-    title:        'Campus Tour — Alliance International School',
-    youtubeId:    'YOUR_CAMPUS_TOUR_ID',
-    category:     'Campus',
-  },
-  {
-    thumbnailSrc: '/images/life_at_alliance/event-wide.png',
-    title:        'Annual Day 2024 — Highlights',
-    youtubeId:    'YOUR_ANNUAL_DAY_ID',
-    category:     'Events',
-  },
+  { film: campusTourFilm, category: 'Campus'      },
+  { film: roboticsFilm,   category: 'Initiatives' },
+  { film: sportsFilm,     category: 'Sports'      },
 ]

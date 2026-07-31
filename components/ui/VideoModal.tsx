@@ -8,9 +8,13 @@ interface Props {
   onClose:  () => void
   videoUrl: string
   title:    string
+  /** Poster frame — self-hosted files only. */
+  poster?:  string
+  /** CSS aspect-ratio for the frame. Defaults to 16 / 9. */
+  ratio?:   string
 }
 
-export function VideoModal({ isOpen, onClose, videoUrl, title }: Props) {
+export function VideoModal({ isOpen, onClose, videoUrl, title, poster, ratio = '16 / 9' }: Props) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', handler)
@@ -21,6 +25,9 @@ export function VideoModal({ isOpen, onClose, videoUrl, title }: Props) {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
+
+  // Self-hosted files get a real <video> element; anything else stays an embed.
+  const isSelfHosted = /\.(mp4|webm|mov)(\?|$)/i.test(videoUrl)
 
   const embedUrl = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')
     ? videoUrl.replace('watch?v=', 'embed/').replace('youtu.be/', 'youtube.com/embed/')
@@ -45,15 +52,30 @@ export function VideoModal({ isOpen, onClose, videoUrl, title }: Props) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.94, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.33, 1, 0.68, 1] }}
-            className="relative w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden"
+            className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden"
+            style={{ aspectRatio: ratio }}
             onClick={e => e.stopPropagation()}
           >
-            <iframe
-              src={embedUrl}
-              title={`${title} video`}
-              allow="autoplay; fullscreen"
-              className="absolute inset-0 w-full h-full"
-            />
+            {isSelfHosted ? (
+              <video
+                key={videoUrl}
+                src={videoUrl}
+                poster={poster}
+                title={title}
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full"
+              />
+            ) : (
+              <iframe
+                src={embedUrl}
+                title={`${title} video`}
+                allow="autoplay; fullscreen"
+                className="absolute inset-0 w-full h-full"
+              />
+            )}
             <button
               onClick={onClose}
               aria-label="Close video"

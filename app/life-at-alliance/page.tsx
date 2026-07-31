@@ -3,6 +3,7 @@ import { PageTransition }                              from '@/components/ui/Pag
 import { PageHero }                                    from '@/components/life/PageHero'
 import { PhilosophyIntro }                             from '@/components/life/PhilosophyIntro'
 import { PillarsOfLifeGrid }                           from '@/components/life/PillarsOfLifeGrid'
+import { HolisticFilmSection }                         from '@/components/life/HolisticFilmSection'
 import { BreatherImage }                               from '@/components/life/BreatherImage'
 import { ActivityShowcaseGrid }                        from '@/components/life/ActivityShowcaseGrid'
 import { SkewedContentCard }                           from '@/components/sections/educators/SkewedContentCard'
@@ -28,6 +29,9 @@ export default function LifeAtAlliancePage() {
 
       {/* 02. Philosophy intro */}
       <PhilosophyIntro />
+
+      {/* 02b. The whole-child claim, on film */}
+      <HolisticFilmSection />
 
       {/* 03. Five Pillars — image-led cards */}
       <PillarsOfLifeGrid />

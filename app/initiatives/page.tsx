@@ -8,7 +8,9 @@ import { EquipmentAndToolsGrid }   from '@/components/initiatives/EquipmentAndTo
 import { HowToJoinProcess }        from '@/components/initiatives/HowToJoinProcess'
 import { ProgrammeCards }          from '@/components/initiatives/ProgrammeCards'
 import { BreatherImage }           from '@/components/life/BreatherImage'
-import { initiativeSections, initiativesVideo } from '@/data/ourInitiatives'
+import { VideoFeature }            from '@/components/ui/VideoFeature'
+import { initiativeSections } from '@/data/ourInitiatives'
+import { roboticsFilm, sportsFilm } from '@/data/videos'
 
 export const metadata = buildMetadata({
   title:       'Our Initiatives',
@@ -22,11 +24,7 @@ export default function InitiativesPage() {
     <PageTransition>
       <PageHero />
 
-      <VideoEmbed
-        videoId={initiativesVideo.videoId}
-        title={initiativesVideo.title}
-        caption={initiativesVideo.caption}
-      />
+      <VideoEmbed film={roboticsFilm} />
 
       <InitiativeNav />
 
@@ -36,6 +34,11 @@ export default function InitiativesPage() {
 
       <section id="sports-academy" style={{ background: 'var(--color-surface-alt)' }}>
         <SkewedContentCard section={initiativeSections[1]} />
+
+        {/* Facilities tour — the courts and grounds the academy trains on */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-20 lg:pb-28">
+          <VideoFeature film={sportsFilm} showCaption sizes="(max-width: 896px) 100vw, 896px" />
+        </div>
       </section>
 
       <section id="day-boarding" style={{ background: 'var(--color-bg)' }}>

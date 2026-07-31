@@ -144,7 +144,7 @@ export const scholarTypes: ScholarType[] = [
 export const oneTimeFees: FeeRow[] = [
   { label: 'Registration Fee (all classes)',  value: '₹999',    note: 'One-time, non-refundable' },
   { label: 'Admission Fee — Kindergarten',    value: '₹18,000', note: 'One-time'                },
-  { label: 'Admission Fee — Class I to XI',   value: '₹20,000', note: 'One-time'                },
+  { label: 'Admission Fee — Class I to XI',   value: '₹18,000', note: 'One-time'                },
   { label: 'Annual Charges (from Sept 2021)', value: '₹6,000',  note: 'Per annum'               },
 ]
 

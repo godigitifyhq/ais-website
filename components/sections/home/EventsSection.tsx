@@ -16,6 +16,7 @@ const imageOverride: Record<string, string> = {
 
 function EventCard({ event }: { event: HomeEvent }) {
   const src = imageOverride[event.id] ?? event.image
+  const isEagerImage = event.id === 'national-flag-day' || event.id === 'sports-day'
 
   return (
     <Link
@@ -23,13 +24,15 @@ function EventCard({ event }: { event: HomeEvent }) {
       className="group flex flex-col border border-border bg-white rounded-lg overflow-hidden hover:shadow-sm transition-all duration-300"
     >
       {/* Image */}
-      <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
+      <div className="relative aspect-3/2 overflow-hidden shrink-0">
         <Image
           src={src}
           alt={event.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          loading={isEagerImage ? 'eager' : 'lazy'}
+          priority={isEagerImage}
         />
       </div>
 
@@ -37,7 +40,7 @@ function EventCard({ event }: { event: HomeEvent }) {
       <div className="p-5 flex flex-col flex-1">
         {/* Category badge + date row */}
         <div className="flex items-center gap-3 mb-3">
-          <span className="inline-flex items-center bg-primary/[0.08] text-primary text-[11px] font-bold tracking-wide px-2.5 py-1 rounded-full">
+          <span className="inline-flex items-center bg-primary/8 text-primary text-[11px] font-bold tracking-wide px-2.5 py-1 rounded-full">
             {event.category}
           </span>
           <span className="font-body text-xs text-text-muted">{event.date}</span>
@@ -66,7 +69,7 @@ function EventCard({ event }: { event: HomeEvent }) {
 export function EventsSection() {
   return (
     <section className="bg-surface-alt py-20 lg:py-28 overflow-hidden">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <GhostSectionHeading
           eyebrow="Latest News"

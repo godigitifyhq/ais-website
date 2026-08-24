@@ -44,6 +44,7 @@ export function Footer() {
               width={140}
               height={64}
               className="h-14 w-auto mb-3"
+              style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <p className="font-display text-xl font-semibold">Alliance International School</p>

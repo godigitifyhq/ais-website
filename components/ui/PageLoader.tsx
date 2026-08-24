@@ -19,7 +19,7 @@ export function PageLoader() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[9999] bg-primary flex items-center justify-center"
+          className="fixed inset-0 z-9999 bg-primary flex items-center justify-center"
           initial={{ y: 0 }}
           exit={{ y: '-100%' }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
@@ -37,6 +37,7 @@ export function PageLoader() {
               width={160}
               height={80}
               priority
+              style={{ width: 'auto', height: 'auto' }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement
                 target.style.display = 'none'

@@ -171,7 +171,7 @@ export const homeEvents: HomeEvent[] = [
     category: 'Sports',
     title:    'Annual Sports Day 2025',
     excerpt:  'A day of champions — students showcased their athletic best across track, field, and team sports events.',
-    image:    '/images/home/events/sports-day.jpg',
+    image:    '/images/sports-day.png',
     href:     '/blogs/sports-day-2025',
   },
   {
@@ -180,7 +180,7 @@ export const homeEvents: HomeEvent[] = [
     category: 'Academics',
     title:    'Robotics Innovation Showcase',
     excerpt:  'Students from Classes 5 to 10 presented their self-built robots, demonstrating programming, engineering, and creative thinking.',
-    image:    '/images/home/events/robotics.jpg',
+    image:    '/images/robotics-lab.png',
     href:     '/blogs/robotics-showcase-2025',
   },
 ]

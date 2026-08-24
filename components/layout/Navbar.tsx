@@ -108,6 +108,7 @@ export function Navbar() {
               height={56}
               priority
               className="h-12 lg:h-14 w-auto"
+              style={{ width: 'auto', height: 'auto' }}
               onError={(e) => {
                 const el = e.target as HTMLImageElement
                 el.style.display = 'none'

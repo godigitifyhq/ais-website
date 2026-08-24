@@ -62,10 +62,10 @@ export const videoTestimonials: VideoTestimonial[] = [
   { id: 'vt-2', video: '/video/testimonal-2.mp4', parentName: '',  childClass: 'Parent of a proud AIS student',  rating: 5 },
   { id: 'vt-3', video: '/video/testimonal-3.mp4', parentName: '', childClass: 'Parent of a proud AIS student', rating: 5 },
   { id: 'vt-4', video: '/video/testimonal-4.mp4', parentName: '',    childClass: 'Parent of a proud AIS student',  rating: 5 },
-  { id: 'vt-5', video: '/videos/testimonal-5.mp4', parentName: '',  childClass: 'Parent of a proud AIS student',  rating: 5 },
-  { id: 'vt-6', video: '/videos/testimonal-6.mp4', parentName: '', childClass: 'Parent of a proud AIS student',  rating: 5 },
-  { id: 'vt-7', video: '/videos/testimonal-7.mp4', parentName: '',    childClass: 'Parent of a proud AIS student',  rating: 5 },
-  { id: 'vt-8', video: '/videos/testimonal-8.mp4', parentName: '',   childClass: 'Parent of a proud AIS student',  rating: 5 },
+  { id: 'vt-5', video: '/video/testimonal-5.mp4', parentName: '',  childClass: 'Parent of a proud AIS student',  rating: 5 },
+  { id: 'vt-6', video: '/video/testimonal-6.mp4', parentName: '', childClass: 'Parent of a proud AIS student',  rating: 5 },
+  { id: 'vt-7', video: '/video/testimonal-7.mp4', parentName: '',    childClass: 'Parent of a proud AIS student',  rating: 5 },
+  { id: 'vt-8', video: '/video/testimonal-8.mp4', parentName: '',   childClass: 'Parent of a proud AIS student',  rating: 5 },
 ]
 // ─── Data ────────────────────────────────────────────────────────────────────
 

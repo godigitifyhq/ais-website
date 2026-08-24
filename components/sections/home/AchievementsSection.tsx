@@ -9,12 +9,13 @@ import { achievements, achievementsContent } from '@/data/home'
 const INTERVAL = 3200
 
 const photoMap: Record<string, string> = {
-  a1: '/images/home/sport.png',
-  a2: '/images/home/library.png',
-  a3: '/images/home/experience.png',
-  a4: '/images/home/lab.png',
-  a5: '/images/home/audi.png',
-  a6: '/images/home/Robolab1.png',
+  a1: '/images/Aryan.jpg',
+  a2: '/images/Dipti-Kumari.jpg',
+  a3: '/images/Kaavya-Sharma.jpg',
+  a4: '/images/Manish-Kashyap.jpg',
+  a5: '/images/Paridhi.jpg',
+  a6: '/images/Prabhleen-Kaur.jpg',
+  a7: '/images/Priyanshi-Seeja.jpg',
 }
 
 const ringMap: Record<string, string> = {

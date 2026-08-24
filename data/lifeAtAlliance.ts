@@ -272,6 +272,66 @@ export const breatherImages = {
   second: { src: '/images/life_at_alliance/event-wide.png', alt: 'AIS annual outdoor school event, wide view'  },
 }
 
+export interface CreativeProjectCard {
+  id: string
+  title: string
+  summary: string
+  image: string
+  imageAlt: string
+  badge: string
+}
+
+export const creativeProjectCards: CreativeProjectCard[] = [
+  {
+    id: 'thermal-power-plant',
+    title: 'Thermal Power Plant',
+    summary: 'Students model real-world energy systems and explain how power generation works in practice.',
+    image: '/images/thermal-project-1.jpg',
+    imageAlt: 'AIS students displaying a thermal power plant model',
+    badge: 'Energy',
+  },
+  {
+    id: 'sustainable-development',
+    title: 'Sustainable Development',
+    summary: 'A creative model that highlights eco-conscious planning, clean living, and greener communities.',
+    image: '/images/sustainable-dev-1.jpg',
+    imageAlt: 'AIS students presenting a sustainable development project model',
+    badge: 'Sustainability',
+  },
+  {
+    id: 'hydraulic-energy',
+    title: 'Hydraulic Energy Generation',
+    summary: 'The project demonstrates how water movement can be transformed into useful renewable energy.',
+    image: '/images/hydraulic-1.jpg',
+    imageAlt: 'AIS students showcasing a hydraulic energy generation model',
+    badge: 'Innovation',
+  },
+  {
+    id: 'geometric-park',
+    title: 'Geometrical Park',
+    summary: 'A visual maths project that turns geometry concepts into a hands-on, interactive learning model.',
+    image: '/images/geometry-1.jpg',
+    imageAlt: 'AIS students presenting a geometry-themed project model',
+    badge: 'Maths',
+  },
+  {
+    id: 'ai-farming',
+    title: 'AI Farming',
+    summary: 'Students explore modern agriculture through a model that connects technology with daily farming needs.',
+    image: '/images/ai-farming.jpg',
+    imageAlt: 'AIS students presenting an AI farming project model',
+    badge: 'Agri-Tech',
+  },
+  {
+    id: 'drip-irrigation',
+    title: 'Drip Irrigation',
+    summary: 'A practical demonstration of efficient irrigation systems that conserve water and support sustainable growth.',
+    image: '/images/drip-irrigation-1.jpg',
+    imageAlt: 'AIS students showcasing a drip irrigation model',
+    badge: 'Water',
+  },
+]
+
 // -------------------------------------------------------
 // ACTIVITY SHOWCASE GRID (replaces ActivityListAndGrid)
 // -------------------------------------------------------

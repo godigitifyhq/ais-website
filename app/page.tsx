@@ -6,6 +6,7 @@ import { AchievementsStrip }        from '@/components/sections/home/Achievement
 import { AtmosphereReel }           from '@/components/sections/home/AtmosphereReel'
 import { AboutSection }             from '@/components/sections/home/AboutSection'
 import { WhyAISSection }            from '@/components/sections/home/WhyAISSection'
+import { CreativeProjectsSection }  from '@/components/sections/home/CreativeProjectsSection'
 import { LifeAtAllianceSection }    from '@/components/sections/home/LifeAtAllianceSection'
 import { EventsSection }            from '@/components/sections/home/EventsSection'
 import { FacilitiesSection }        from '@/components/sections/home/FacilitiesSection'
@@ -30,6 +31,7 @@ export default function HomePage() {
       <AtmosphereReel />
       <AboutSection />
       <WhyAISSection />
+      <CreativeProjectsSection />
       <LifeAtAllianceSection />
       <EventsSection />
       <FacilitiesSection />

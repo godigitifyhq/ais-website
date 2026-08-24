@@ -10,7 +10,6 @@ import { ActivityShowcaseGrid } from "@/components/life/ActivityShowcaseGrid";
 import { SkewedContentCard } from "@/components/sections/educators/SkewedContentCard";
 import { ActivityBasedLearning } from "@/components/life/ActivityBasedLearning";
 import { DayAtAISTimeline } from "@/components/life/DayAtAISTimeline";
-import { StudentCouncil } from "@/components/life/StudentCouncil";
 import { ExcellenceMarquee } from "@/components/life/ExcellenceMarquee";
 import { lifeSections, breatherImages } from "@/data/lifeAtAlliance";
 
@@ -81,6 +80,9 @@ export default function LifeAtAlliancePage() {
       >
         <SkewedContentCard section={lifeSections[3]} />
       </section>
+      <section id="student-leadership" style={{ background: "var(--color-bg)" }}>
+        <SkewedContentCard section={lifeSections[4]} />
+      </section>
 
       {/* 10. Activity-Based Learning — image grid */}
       <ActivityBasedLearning />
@@ -94,8 +96,7 @@ export default function LifeAtAlliancePage() {
         alt={breatherImages.second.alt}
       />
 
-      {/* 13. Student Council */}
-      <StudentCouncil />
+      {/* 13. Student Leadership */}
 
       {/* 14. Excellence Marquee — auto-scrolling achievement strip */}
       <ExcellenceMarquee />

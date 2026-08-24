@@ -217,6 +217,25 @@ export const lifeSections: LifeSection[] = [
     imageAlt:      'AIS students at the annual Wordsmiths literary event',
     imagePosition: 'left',
   },
+  {
+    id:            'student-leadership',
+    anchorId:      'student-leadership',
+    eyebrow:       'Student Leadership',
+    headingPlain:  'Leadership',
+    headingAccent: 'With Purpose',
+    ghostLabel:    'LEAD',
+    body: [
+      'At Alliance, leadership is not limited to badges or positions. It is nurtured through responsibility, empathy, and the confidence to serve others with integrity.',
+      'The Student Council gives children a voice in school life — from event planning and discipline to community initiatives and peer mentorship. Through this process, students learn how to listen, collaborate, and make thoughtful decisions.',
+      'By taking ownership of meaningful responsibilities, our student leaders grow into confident, compassionate, and action-oriented young citizens who shape a stronger school community.',
+    ],
+    ctaLabel:      'Explore Student Life',
+    ctaHref:       '/life-at-alliance',
+    imageSrc:      '/images/student-council.png',
+    imageAlt:      'AIS student council members led by confident student leaders',
+    imagePosition: 'right',
+    highlight:     'Voice. Responsibility. Action.',
+  },
   
 ]
 

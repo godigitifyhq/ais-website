@@ -353,7 +353,7 @@ export interface LatestPost {
 
 export const latestPosts: LatestPost[] = [
   {
-    image:    '/images/home/events/flag-day.jpg',
+    image:    '/images/flag-hosting.png',
     category: 'Community',
     title:    'National Flag Day Celebration at AIS',
     date:     '22 July 2025',

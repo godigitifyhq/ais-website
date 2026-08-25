@@ -149,7 +149,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id:          'ev-02',
-    src:         '/images/home/events/flag-day.jpg',
+    src:         '/images/flag-hosting.png',
     alt:         'AIS National Flag Day celebration on campus',
     category:    'events',
     aspectRatio: 'landscape',

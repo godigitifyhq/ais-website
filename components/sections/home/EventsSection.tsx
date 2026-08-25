@@ -9,9 +9,9 @@ import { GhostSectionHeading } from '@/components/ui/GhostSectionHeading'
 const ease = [0.33, 1, 0.68, 1] as const
 
 const imageOverride: Record<string, string> = {
-  'national-flag-day':   '/images/home/about-students.jpg',
-  'sports-day':          '/images/home/sport.png',
-  'robotics-showcase':   '/images/home/Robolab1.png',
+  'national-flag-day':   '/images/flag-hosting.png',
+  'sports-day':          '/images/home/sports.png',
+  'robotics-showcase':   '/images/robotics-lab.png',
 }
 
 function EventCard({ event }: { event: HomeEvent }) {

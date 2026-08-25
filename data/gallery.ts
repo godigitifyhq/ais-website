@@ -95,7 +95,7 @@ export const galleryImages: GalleryImage[] = [
   // ── Sports ───────────────────────────────────────────────────────────────────
   {
     id:          'sp-01',
-    src:         '/images/home/sport.png',
+    src:         '/images/home/sports.png',
     alt:         'AIS students at annual sports day',
     category:    'sports',
     aspectRatio: 'landscape',
@@ -231,7 +231,7 @@ export const galleryImages: GalleryImage[] = [
   // ── Robotics & STEM ───────────────────────────────────────────────────────────
   {
     id:          'rb-01',
-    src:         '/images/home/Robolab1.png',
+    src:         '/images/home/robotics-lab.png',
     alt:         'AIS Robotics Lab — students building robots',
     category:    'robotics',
     aspectRatio: 'landscape',

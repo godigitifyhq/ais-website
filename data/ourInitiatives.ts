@@ -119,7 +119,7 @@ export const equipmentTiles: EquipmentTile[] = [
   { id: 'storage',    icon: 'Archive',      heading: 'Student Project Display Wall',    body: 'Dedicated shelving for in-progress and completed student projects.',              category: 'robotics', imageSrc: '/images/initiatives/project-display-wall.png'             },
   { id: 'collab',     icon: 'Users',        heading: 'Team Collaboration Stations',     body: 'Open-plan tables designed for team-based problem-solving sessions.',              category: 'robotics', imageSrc: '/images/initiatives/team-collaboration-station.png' },
   { id: 'curriculum', icon: 'BookMarked',   heading: 'CBSE Curriculum Integration',     body: 'Lab activities mapped directly to CBSE science, maths, and computer science.',   category: 'robotics', imageSrc: '/images/initiatives/cbse-curriculum.png' },
-  { id: 'sports-eq',  icon: 'Trophy',       heading: 'Professional Sports Equipment',   body: 'Professional-grade gear across cricket, football, basketball, and tennis.',      category: 'sports',  imageSrc: '/images/home/sport.png'                },
+  { id: 'sports-eq',  icon: 'Trophy',       heading: 'Professional Sports Equipment',   body: 'Professional-grade gear across cricket, football, basketball, and tennis.',      category: 'sports',  imageSrc: '/images/home/sports.png'                },
 ]
 
 // ─── HOW TO JOIN PROCESS STEPS ────────────────────────────────────────────────

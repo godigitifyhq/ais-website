@@ -13,7 +13,7 @@ export function EducatorsPageHero() {
       style={{ minHeight: 'min(65vh, 560px)' }}
     >
       <Image
-        src="/images/educators/hero.png"
+        src="/images/educators/faculty-group.png"
         alt="AIS educators — passionate, qualified teachers"
         fill
         priority

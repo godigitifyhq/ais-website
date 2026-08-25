@@ -524,14 +524,14 @@ export const dayTimeline: TimelineItem[] = [
     time:        '1:15 PM',
     title:       'Activity Period',
     description: 'Robotics, music, drama, art — students choose their passion.',
-    imageSrc:    '/images/home/Robolab1.png',
+    imageSrc:    '/images/home/robotics-lab.png',
     imageAlt:    'AIS students in activity period doing robotics',
   },
   {
     time:        '3:30 PM',
     title:       'Sports & Play',
     description: 'Cricket, football, swimming — energy, competition, fun.',
-    imageSrc:    '/images/home/sport.png',
+    imageSrc:    '/images/home/sports.png',
     imageAlt:    'AIS students playing sports on the school field',
   },
   {

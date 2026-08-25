@@ -162,7 +162,7 @@ export const homeEvents: HomeEvent[] = [
     category: 'Community',
     title:    'National Flag Day Celebration',
     excerpt:  'AIS proudly celebrates National Flag Day on 22nd July, honouring the spirit of unity, sacrifice, and patriotism across campus.',
-    image:    '/images/home/events/flag-day.jpg',
+    image:    '/images/flag-hosting.png',
     href:     '/blogs/national-flag-day-2025',
   },
   {
@@ -360,14 +360,14 @@ export const latestPosts: LatestPost[] = [
     href:     '/blogs/national-flag-day-2025',
   },
   {
-    image:    '/images/home/sport.png',
+    image:    '/images/home/sports.png',
     category: 'Sports',
     title:    'Annual Sports Day 2025 Highlights',
     date:     '10 July 2025',
     href:     '/blogs/sports-day-2025',
   },
   {
-    image:    '/images/home/Robolab1.png',
+    image:    '/images/home/robotics-lab.png',
     category: 'Academics',
     title:    'Robotics Innovation Showcase 2025',
     date:     '2 June 2025',

@@ -60,7 +60,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'CalendarDays',
     label:       'Academic Calendar',
     description: 'Session plan, holidays, exam schedule, and key dates for the academic year.',
-    href:        '/docs/cbse/academic-calendar-2025-26.pdf',
+    href:        '/documents/ACADEMIC_CALANDER.pdf',
     colorKey:    'amber',
   },
   {
@@ -68,7 +68,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'FileCheck',
     label:       'Mandatory Disclosure',
     description: 'CBSE-required disclosure of school infrastructure, staff, and affiliation details.',
-    href:        '/docs/cbse/mandatory-disclosure.pdf',
+    href:        '/documents/Mandatory_Public_Disclosure_AIS.pdf',
     colorKey:    'blue',
   },
   {
@@ -76,7 +76,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'Award',
     label:       'Affiliation Grant Letter',
     description: "Official CBSE affiliation letter confirming Alliance International School's recognised status.",
-    href:        '/docs/cbse/affiliation-grant-letter.pdf',
+    href:        '/documents/Affiliation_Grant_Letter.pdf',
     colorKey:    'rose',
   },
   {
@@ -84,7 +84,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'ShieldCheck',
     label:       'Safety Certificate',
     description: 'Annual fire safety and building safety certificate issued by the relevant authority.',
-    href:        '/docs/cbse/safety-certificate.pdf',
+    href:        '/documents/safety_certificate.pdf',
     colorKey:    'green',
   },
   {
@@ -92,7 +92,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'Users',
     label:       'Teacher List',
     description: 'Qualified faculty list as submitted to CBSE — names, qualifications, and designations.',
-    href:        '/docs/cbse/teacher-list.pdf',
+    href:        '/documents/AIS_updated_TeacherData.xlsx',
     colorKey:    'sky',
   },
   {
@@ -100,7 +100,7 @@ export const cbseDocuments: CBSEDocument[] = [
     icon:        'ClipboardList',
     label:       'TC List',
     description: 'Transfer Certificate register for students who have moved school.',
-    href:        '/docs/cbse/tc-list.pdf',
+    href:        '/documents/AIS_TC_Report-2025.pdf',
     colorKey:    'pink',
   },
 ]

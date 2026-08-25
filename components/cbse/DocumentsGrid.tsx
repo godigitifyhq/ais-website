@@ -90,7 +90,7 @@ export function DocumentsGrid() {
                   gap: '0.75rem',
                   transition: 'box-shadow 220ms ease, transform 220ms ease',
                 }}
-                className="hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)]"
+                className="hover:-translate-y-0.75 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)]"
               >
                 {/* Icon circle */}
                 <div
@@ -138,7 +138,7 @@ export function DocumentsGrid() {
                 {/* Download CTA */}
                 <a
                   href={doc.href}
-                  download={doc.href.endsWith('.pdf') ? true : undefined}
+                  download
                   target={doc.isExternal ? '_blank' : undefined}
                   rel={doc.isExternal ? 'noopener noreferrer' : undefined}
                   style={{
@@ -156,10 +156,10 @@ export function DocumentsGrid() {
                     transition: 'gap 180ms ease',
                   }}
                   className="hover:gap-2.5"
-                  aria-label={`Download ${doc.label} PDF`}
+                  aria-label={`Download ${doc.label} ${doc.href.toLowerCase().endsWith('.xlsx') ? 'XLSX' : 'PDF'}`}
                 >
                   <Download size={14} />
-                  Download PDF
+                  Download {doc.href.toLowerCase().endsWith('.xlsx') ? 'XLSX' : 'PDF'}
                 </a>
               </motion.div>
             )

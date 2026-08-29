@@ -6,8 +6,8 @@ import { z } from 'zod'
 
 const schema = z.object({
   parentName:  z.string().min(2, 'Please enter parent name'),
-  studentName: z.string().min(2, 'Please enter student name'),
-  phone:       z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit mobile number'),
+  childName:   z.string().min(2, 'Please enter student name'),
+  phoneNo:     z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit mobile number'),
   grade:       z.string().min(1, 'Please select a class'),
 })
 
@@ -115,32 +115,32 @@ export function HeroAdmissionForm({ variant = 'hero' }: Props) {
             {errors.parentName && <p className={errorClass}>{errors.parentName.message}</p>}
           </div>
           <div>
-            <label htmlFor={`studentName-${variant}`} className={labelClass}>Student Name</label>
+            <label htmlFor={`childName-${variant}`} className={labelClass}>Student Name</label>
             <input
-              id={`studentName-${variant}`}
+              id={`childName-${variant}`}
               type="text"
               placeholder="Student Name"
               className={inputClass}
-              {...register('studentName')}
+              {...register('childName')}
             />
-            {errors.studentName && <p className={errorClass}>{errors.studentName.message}</p>}
+            {errors.childName && <p className={errorClass}>{errors.childName.message}</p>}
           </div>
         </div>
 
         {/* Phone & Grade — side by side */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label htmlFor={`phone-${variant}`} className={labelClass}>Phone Number</label>
+            <label htmlFor={`phoneNo-${variant}`} className={labelClass}>Phone Number</label>
             <input
-              id={`phone-${variant}`}
+              id={`phoneNo-${variant}`}
               type="tel"
               placeholder="Mobile Number"
               autoComplete="tel"
               maxLength={10}
               className={inputClass}
-              {...register('phone')}
+              {...register('phoneNo')}
             />
-            {errors.phone && <p className={errorClass}>{errors.phone.message}</p>}
+            {errors.phoneNo && <p className={errorClass}>{errors.phoneNo.message}</p>}
           </div>
           <div>
             <label htmlFor={`grade-${variant}`} className={labelClass}>Child&apos;s Class</label>

@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       parentName: data.parentName,
       childName: data.childName,
       email: data.email || '',
-      phone: data.phone,
+      phoneNo: data.phoneNo,
       grade: data.grade || '',
       message: data.message || '',
       initiative: data.initiative || '',

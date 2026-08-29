@@ -6,14 +6,14 @@ import { enquiryFormFields } from '@/data/ourInitiatives'
 interface FormState {
   parentName:   string
   childName:    string
-  mobileNumber: string
+  phoneNo:      string
   email:        string
   grade:        string
   initiative:   string
 }
 
 const blank: FormState = {
-  parentName: '', childName: '', mobileNumber: '',
+  parentName: '', childName: '', phoneNo: '',
   email: '', grade: '', initiative: '',
 }
 
@@ -38,7 +38,7 @@ export function EnquiryCTA() {
       await fetch('/api/enquiry', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({ ...form, phone: form.mobileNumber }),
+        body:    JSON.stringify(form),
       })
     } finally {
       setSubmitting(false)
@@ -198,8 +198,8 @@ export function EnquiryCTA() {
                     </label>
                     <input
                       type="tel"
-                      value={form.mobileNumber}
-                      onChange={e => set('mobileNumber', e.target.value)}
+                      value={form.phoneNo}
+                      onChange={e => set('phoneNo', e.target.value)}
                       placeholder="10-digit number"
                       className={inputCls}
                       style={inputStyle}

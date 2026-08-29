@@ -12,14 +12,14 @@ const grades = [
 interface FormState {
   parentName: string
   childName:  string
-  phone:      string
+  phoneNo:    string
   email:      string
   grade:      string
   message:    string
 }
 
 const blank: FormState = {
-  parentName: '', childName: '', phone: '', email: '', grade: '', message: '',
+  parentName: '', childName: '', phoneNo: '', email: '', grade: '', message: '',
 }
 
 const ease = [0.33, 1, 0.68, 1] as const
@@ -268,8 +268,8 @@ export function GlobalEnquiryWidget() {
                         </label>
                         <input
                           type="tel"
-                          value={form.phone}
-                          onChange={e => set('phone', e.target.value)}
+                          value={form.phoneNo}
+                          onChange={e => set('phoneNo', e.target.value)}
                           placeholder="10-digit"
                           className={inputCls}
                           style={{

@@ -18,8 +18,8 @@ export async function POST(req: NextRequest) {
     const backendPayload = {
       name: data.name,
       email: data.email,
-      phone: data.phone,
-      grade: data.grade,
+      phoneNo: data.phoneNo,
+      childGrade: data.grade,
       message: data.message || '',
       formType: 'contact',
       submittedAt: new Date().toISOString(),

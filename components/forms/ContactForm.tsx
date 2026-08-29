@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button'
 const schema = z.object({
   name:    z.string().min(2, 'Name must be at least 2 characters'),
   email:   z.string().email('Enter a valid email address'),
-  phone:   z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit Indian mobile number'),
+  phoneNo: z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit Indian mobile number'),
   grade:   z.string().min(1, 'Please select a class'),
   message: z.string().max(500, 'Message cannot exceed 500 characters').optional(),
 })
@@ -143,22 +143,22 @@ export function ContactForm() {
 
       {/* Phone */}
       <div>
-        <label htmlFor="phone" className={labelClass}>Mobile Number *</label>
+        <label htmlFor="phoneNo" className={labelClass}>Mobile Number *</label>
         <input
-          id="phone"
+          id="phoneNo"
           type="tel"
           placeholder="10-digit mobile number"
           autoComplete="tel"
           className={inputClass}
-          {...register('phone')}
-          aria-invalid={!!errors.phone}
-          aria-describedby={errors.phone ? 'phone-error' : undefined}
+          {...register('phoneNo')}
+          aria-invalid={!!errors.phoneNo}
+          aria-describedby={errors.phoneNo ? 'phoneNo-error' : undefined}
         />
         <AnimatePresence>
-          {errors.phone && (
-            <motion.p id="phone-error" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
+          {errors.phoneNo && (
+            <motion.p id="phoneNo-error" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
               className="mt-1.5 text-xs text-primary font-medium" role="alert">
-              {errors.phone.message}
+              {errors.phoneNo.message}
             </motion.p>
           )}
         </AnimatePresence>

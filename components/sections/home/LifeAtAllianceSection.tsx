@@ -7,7 +7,7 @@ import { ArrowRight, Play } from 'lucide-react'
 import { useReveal } from '@/hooks/useReveal'
 import { GhostSectionHeading } from '@/components/ui/GhostSectionHeading'
 import { VideoModal } from '@/components/ui/VideoModal'
-import { campusTourFilm } from '@/data/videos'
+import { admissionStoryFilm } from '@/data/videos'
 
 const ease = [0.33, 1, 0.68, 1] as const
 
@@ -21,9 +21,9 @@ const lifeContent = {
   ],
   ctaLabel:     'Life at Alliance',
   ctaHref:      '/life-at-alliance',
-  videoImage:   campusTourFilm.poster,
-  videoUrl:     campusTourFilm.src,
-  videoAlt:     'AIS campus life video',
+  videoImage:   admissionStoryFilm.poster,
+  videoUrl:     admissionStoryFilm.src,
+  videoAlt:     'A teacher welcoming a student at Alliance International School',
   videoCaption: 'See how our students live, learn, and grow',
 }
 
@@ -118,9 +118,9 @@ export function LifeAtAllianceSection() {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         videoUrl={lifeContent.videoUrl}
-        poster={campusTourFilm.poster}
-        ratio={campusTourFilm.ratio}
-        title="AIS Campus Life"
+        poster={admissionStoryFilm.poster}
+        ratio={admissionStoryFilm.ratio}
+        title={admissionStoryFilm.title}
       />
     </>
   )

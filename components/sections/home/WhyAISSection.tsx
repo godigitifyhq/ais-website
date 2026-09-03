@@ -8,7 +8,7 @@ const imageMap: Record<string, string> = {
   joyful:       '/images/teaching.png',
   experiential: '/images/home/robotics-lab.png',
   confidence:   '/images/confidence.png',
-  transport:    '/images/transport.png'
+  transport:    '/images/transport.jpg'
 }
 
 const ease = [0.33, 1, 0.68, 1] as const

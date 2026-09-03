@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { heroContent } from '@/data/home'
-import { heroLoop }    from '@/data/videos'
+import { heroLoop, campusTourFilm } from '@/data/videos'
 import { HeroAdmissionForm } from './HeroAdmissionForm'
 import { SplitHeading }     from '@/components/ui/SplitHeading'
 import { LoopingKeyword }  from '@/components/ui/LoopingKeyword'
@@ -14,8 +14,10 @@ import { BackgroundVideo } from '@/components/ui/BackgroundVideo'
 const ease = [0.33, 1, 0.68, 1] as const
 
 /**
- * The hero runs on a silent campus loop. Flip this to false to fall straight
- * back to the four-banner carousel below, which is kept intact and working.
+ * The hero runs on a silent campus film. The 16s loop paints immediately, then
+ * the full 2:47 campus tour crossfades in once it has buffered — see
+ * BackgroundVideo. Flip this to false to fall straight back to the four-banner
+ * carousel below, which is kept intact and working.
  */
 const USE_VIDEO_HERO = true
 
@@ -56,7 +58,12 @@ export function HeroSection() {
         {/* Background — video loop, or the banner carousel when disabled */}
         {USE_VIDEO_HERO ? (
           <div className="absolute inset-0 bg-text">
-            <BackgroundVideo loop={heroLoop} objectPosition="center 35%" priority />
+            <BackgroundVideo
+              loop={heroLoop}
+              film={campusTourFilm}
+              objectPosition="center 35%"
+              priority
+            />
           </div>
         ) : (
           <AnimatePresence mode="sync">

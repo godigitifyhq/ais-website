@@ -69,7 +69,7 @@ export function AllianceDifferenceSection() {
             src={differenceImage.src}
             alt={differenceImage.alt}
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 90vw"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-primary/90 px-6 py-3">

@@ -86,8 +86,8 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id:          'cl-06',
-    src:         '/images/about/campus-2.jpg',
-    alt:         'AIS campus green spaces and walkways',
+    src:         '/images/infrastructure/hero-campus.png',
+    alt:         'The Alliance International School campus building in Banur',
     category:    'campus-life',
     aspectRatio: 'landscape',
   },

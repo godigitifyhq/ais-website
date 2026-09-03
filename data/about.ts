@@ -179,7 +179,7 @@ export const differenceFeatures: DifferenceFeature[] = [
 ]
 
 export const differenceImage = {
-  src:     '/images/about/campus-2.jpg',
-  alt:     'Alliance International School students on campus',
+  src:     '/images/infrastructure/hero-campus.png',
+  alt:     'The Alliance International School campus building in Banur',
   caption: 'The Alliance campus — designed for every child to thrive',
 }

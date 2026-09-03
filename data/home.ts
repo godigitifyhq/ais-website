@@ -325,7 +325,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     id:         't-3',
-    avatar:     '/images/about/campus-2.jpg',
+    avatar:     '/images/infrastructure/hero-campus.png',
     parentName: 'Gurpreet Singh',
     childClass: 'Parent of Class 10 student',
     quote:      'Best decision we ever made. The robotics programme and sports facilities are world-class. Our son is thriving.',
